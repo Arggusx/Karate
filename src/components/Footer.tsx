@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p>© 2023 Shotokan Karate - Todos os direitos reservados</p>
+          <p>© 2025 Douglas - Todos os direitos reservados</p>
           <p className="mt-2 text-sm text-gray-500">
             空手に先手なし - "Não existe ataque primeiro no Karate"
           </p>

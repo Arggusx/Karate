@@ -183,6 +183,151 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Dojo Kun Section  */}
+            <section id="dojo-kun" className="mb-20">
+                <div className="bg-red-600 text-white p-8 rounded-lg shadow-lg">
+                    <h2 className="text-3xl font-bold mb-8 flex items-center justify-center">
+                        <span className="kanji-title bg-white text-red-600 text-4xl px-4 py-2 mr-4">道</span>
+                        Dojo Kun - Os Princípios do Shotokan
+                    </h2>
+
+                    <div className="max-w-3xl mx-auto">
+                        <ul className="dojo-kun text-xl space-y-4">
+                            <li className="font-bold">Hitotsu! Jinkaku kansei ni tsutomuru koto (人格完成に努めること) - Esforçar-se para a perfeição do caráter</li>
+                            <li className="font-bold">Hitotsu! Makoto no michi o mamoru koto (誠の道を守ること) - Ser fiel ao caminho da verdade</li>
+                            <li className="font-bold">Hitotsu! Doryoku no seishin o yashinau koto (努力の精神を養うこと) - Cultivar o espírito de esforço</li>
+                            <li className="font-bold">Hitotsu! Reigi o omonzuru koto (礼儀を重んずること) - Respeitar acima de tudo</li>
+                            <li className="font-bold">Hitotsu! Kekki no yu o imashimuru koto (血気の勇を戒むること) - Conter o espírito de agressão</li>
+                        </ul>
+
+                        <div className="mt-8 bg-black bg-opacity-30 p-6 rounded-lg">
+                            <p className="italic text-center">"O verdadeiro Karate é este: que no dia a dia, na vida cotidiana, mente e corpo sejam treinados e desenvolvidos num espírito de humildade; e que, em momentos críticos, sejamos totalmente devotados à causa da justiça." - Gichin Funakoshi</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="beneficios" className="mb-20 w-[85%] mx-auto">
+                <h2 className="text-3xl font-bold mb-8 flex items-center">
+                    <span className="kanji-title bg-red-600 text-white text-4xl px-4 py-2 mr-4">益</span>
+                    Benefícios do Karate
+                </h2>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+                        <h3 className="text-2xl font-bold mb-4 text-red-600">Físicos</h3>
+                        <ul className="space-y-3">
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Melhora a coordenação motora e equilíbrio</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Aumento da força e resistência muscular</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Desenvolvimento da flexibilidade</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Melhora do condicionamento cardiovascular</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Controle do peso corporal</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+                        <h3 className="text-2xl font-bold mb-4 text-red-600">Mentais</h3>
+                        <ul className="space-y-3">
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Desenvolvimento da concentração</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Aumento da autoconfiança</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Controle do estresse e ansiedade</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Desenvolvimento da disciplina</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Melhora da capacidade de tomada de decisões</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
+                        <h3 className="text-2xl font-bold mb-4 text-red-600">Sociais</h3>
+                        <ul className="space-y-3">
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Desenvolvimento do respeito pelos outros</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Aprendizado do trabalho em equipe</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Fortaleciemnto do senso de comunidade</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Desenvolvimento da paciência e tolerância</span>
+                            </li>
+
+                            <li className="flex items-start">
+                                <span className="text-red-600 mr-2">✓</span>
+                                <span>Compreensão da hierarquia e responsabilidade</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="mt-8 bg-red-50 bolder-l-4 bolder-red-600 p-6 rounded-r-lg">
+                    <h3 className="text-2xl font-bold mb-4 text-red-600">Karatê para Todas as Idades</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 className="font-bold mb-2">Criança:</h4>
+                            <p>Desenvolve coordenação, disciplona e autoconfiança dende cedo. Ensina valores como respeito e perceverança que  serão úteis por toda a vida.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold mb-2">Adultos:</h4>
+                            <p>Desenvolve coordenação, disciplona e autoconfiança dende cedo. Ensina valores como respeito e perceverança que  serão úteis por toda a vida.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold mb-2">Idosos:</h4>
+                            <p>Desenvolve coordenação, disciplona e autoconfiança dende cedo. Ensina valores como respeito e perceverança que  serão úteis por toda a vida.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold mb-2">Mulheres:</h4>
+                            <p>Fortalecimento muscular, melhora de postura e autoconfiança. Técnicas de autodefesa especialmente úteis em situações de risco.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </>
     );
 };

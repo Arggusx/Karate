@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from "./components/Header"
-import Welcome from "./components/Welcome"
 import Footer from './components/Footer'
 import Home from './routes/Home'
+import Fund from './routes/Fundaments'
+import Reishiki from './routes/Reishiki'
+import Beneficios from './routes/Beneficios'
 
 function App() {
 
@@ -10,11 +12,11 @@ function App() {
     <>
       <Router>
         <Header />
-        <Welcome />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route />
-          <Route />
+          <Route path='/Fund' element={<Fund />} />
+          <Route path='/Reishiki' element={<Reishiki />}/>
+          <Route path='/Beneficios' element={<Beneficios />}/>
         </Routes>
         <Footer />
       </Router>

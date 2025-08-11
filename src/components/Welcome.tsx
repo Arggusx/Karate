@@ -7,7 +7,7 @@ const Welcome = () => {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22><path fill=%22none%22 stroke=%22%23ef4444%22 stroke-width=%220.5%22 d=%22M0,0 L100,100 M100,0 L0,100%22 opacity=%220.1%22/></svg>')] bg-[length:100px_100px]"></div>
       </div>
 
-      <div className="container mx-auto px-4 py-24 relative z-10">
+      <div className="container mx-auto px-4 py-10 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="text-red-500">空手道</span>{" "}
@@ -16,14 +16,7 @@ const Welcome = () => {
           <p className="text-xl mb-8">
             O caminho da mão vazia - Tradição, disciplina e evolução pessoal
           </p>
-          <div className="flex justify-center">
-            <a
-              href="#historia"
-              className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded transition duration-300 transform hover:scale-105"
-            >
-              Conheça a História
-            </a>
-          </div>
+          
         </div>
       </div>
     </section>

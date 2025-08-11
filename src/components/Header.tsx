@@ -15,11 +15,10 @@ const Header = () => {
             </h1>
           </div>
           <nav className="flex flex-wrap justify-center gap-4 md:gap-8">
-            <Link id='Home' to='/' className="hover:text-red-500 transition">História</Link>
-            <a href="#fundamentos" className="hover:text-red-500 transition">Fundamentos</a>
-            <a href="#tecnicas" className="hover:text-red-500 transition">Técnicas</a>
-            <a href="#dojo-kun" className="hover:text-red-500 transition">Dojo Kun</a>
-            <a href="#beneficios" className="hover:text-red-500 transition">Benefícios</a>
+            <Link id='Home' to='/' className="hover:text-red-500 transition text-xl">História</Link>
+            <Link id='fundamentos' to='Fund' className="hover:text-red-500 transition text-xl">Fundamentos</Link>
+            <Link id='Reishiki' to='Reishiki' className="hover:text-red-500 transition text-xl">Práticas</Link>
+            <Link id='Reishiki' to='Beneficios'  className="hover:text-red-500 transition text-xl">Benefícios</Link>
           </nav>
         </div>
       </div>

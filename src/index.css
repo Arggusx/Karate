@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
 
 .japanese-bg {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23ef4444" stroke-width="0.5" d="M0,0 L100,100 M100,0 L0,100" opacity="0.1"/></svg>');
@@ -32,4 +33,24 @@
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+}
+
+
+@layer base {
+    .font-brush {
+        font-family: 'Yuji Syuku', cursive;
+    }
+
+    .font-kaushan {
+        font-family: 'Kaushan Script', cursive;
+    }
+
+    .font-great {
+        font-family: 'Great Vibes', cursive;
+    }
+
+    .font-yuji {
+        font-family: 'Yuji Boku', cursive;
+    }
+
 }

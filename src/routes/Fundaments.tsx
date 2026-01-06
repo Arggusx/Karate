@@ -3,7 +3,7 @@ const Fund = () => {
         <section id="fundamentos" className="mb-20 w-[85%] mx-auto pt-30">
             <h2 className="text-3xl font-bold mb-8 my-12 flex items-center">
                 <span className="kanji-title bg-red-600 text-white text-4xl px-4 py-2 mr-4">基</span>
-                Fundamentos do Shotokan
+                Fundamentos
             </h2>
 
             <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -21,10 +21,10 @@ const Fund = () => {
                     </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-lg shadow-lg">
+                <div className="bg-white p-10 rounded-lg shadow-lg lg:w-[50%]">
                     <h3 className="text-2xl font-bold mb-4 text-red-600">O Karategi</h3>
                     <p className="mb-4">O uniforme de treino, chamado Karategi, é geralmente branco, simbolizando pureza e humildade. O Shotokan tradicional usa um gi mais pesado que outros estilos.</p>
-                    <img src="karategi.webp" alt="Karategi" className="w-full h-auto rounded mb-4 bg-black p-3" />
+                    <img src="karategi.webp" alt="Karategi" className="w-full h-auto rounded mb-4 border border-5 p-10" />
                     <p>O cobi (faixa) indica o nível do praticante. As cores seguem uma ordem: branca, amarela, laranja, verde, azul, marrom e preta (dan).</p>
                 </div>
             </div>

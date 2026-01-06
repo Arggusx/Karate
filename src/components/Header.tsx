@@ -66,7 +66,7 @@ function Header() {
                 <Link
                   id={id}
                   to={id}
-                  className="text-lg font-bold text-red-500 hover:text-white transition-colors pl-2"
+                  className="text-lg font-bold text-red-500 pl-2"
                   onClick={() => setMenuOpen(false)}
                 >
                   {label}
@@ -84,10 +84,10 @@ function Header() {
               to={id}
               className="group relative px-1 py-2 text-lg font-bold"
             >
-              <span className="relative z-10 bg-gradient-to-r from-red-500 to-gray-300 bg-clip-text text-transparent transition-all duration-300 group-hover:from-red-300 group-hover:to-red-500">
+              <span className="relative z-10 bg-clip-text text-red-600 transition-all duration-300 ">
                 {label}
               </span>
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-red-500 to-red-300 transform origin-left transition-transform duration-300 group-hover:scale-x-100 scale-x-0"></span>
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-red-600 transform origin-left transition-transform duration-300 group-hover:scale-x-100 scale-x-0"></span>
             </Link>
           ))}
         </nav>

@@ -1,6 +1,47 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
 
+.conclusao-fundamentos {
+    position: relative;
+    overflow: hidden;
+    color: #1A1A1A;
+}
+
+.conclusao-fundamentos::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url('kanji-ku-2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    filter: blur(6px);
+    transform: scale(1.1);
+    /* evita bordas cortadas */
+    opacity: 0.6;
+
+    z-index: 0;
+}
+
+.conclusao-fundamentos>* {
+    position: relative;
+    z-index: 1;
+}
+
+body {
+    background-color: #F5F2E8;
+    background-image:
+        url('washi-fibers.jpg');
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #1A1A1A;
+    font-family: 'Noto Serif JP', serif;
+}
+
 .japanese-bg {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23ef4444" stroke-width="0.5" d="M0,0 L100,100 M100,0 L0,100" opacity="0.1"/></svg>');
     background-size: 100px 100px;

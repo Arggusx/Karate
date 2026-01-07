@@ -5,8 +5,7 @@ const Home = () => {
         <>
             <Welcome />
 
-            {/* Seção de História */}
-            <section id="historia" className="mb-20 ">
+            <section id="historia" className="mb-20">
                 <div className="items-start mt-12 mx-auto w-[80%]">
                     <div className="md:w-[50%] mb-8 md:mb-0 md:pr-8">
                         <h2 className="text-3xl font-bold mb-6 flex items-center">
@@ -29,7 +28,7 @@ const Home = () => {
                             <p className="indent-8 leading-relaxed text-sm md:text-base">Além de mestre marcial, Funakoshi era poeta e utilizava o pseudônimo Shoto (“ondas de pinheiro”), inspirado nos sons do vento entre os pinheiros de sua terra natal. Esse nome viria a se tornar símbolo de seu estilo. Ao longo das décadas de 1930, ele aprofundou a organização técnica do Karate, criando exercícios estruturados de kumite, como o Gohon Kumite e o Ippon Kumite (1933), além do Ju Ippon Kumite (1934), estabelecendo uma progressão pedagógica clara para o ensino.</p>
                         </div>
                         <div className="mx-auto p-4 w-full h-full hidden md:block ">
-                            <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto md:h-90 md:w-70" />
+                            <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto md:h-90 md:w-70 rounded" />
                             <p className="text-center mt-2 text-sm italic font-semibold">Gichin Funakoshi (1868-1957), fundador do Shotokan Karate</p>
                         </div>
                     </div>
@@ -49,12 +48,12 @@ const Home = () => {
                                 <p className="indent-8 leading-relaxed text-sm md:text-base">Em 1939, foi inaugurado o primeiro dojo oficial do estilo, denominado Shotokan (“Casa de Shoto”), que também passou a designar o próprio estilo. Durante esse período, o Karate se expandiu rapidamente por meio de clubes universitários, como os das universidades Keio, Waseda e Takushoku, que tiveram papel essencial na formação de instrutores e na difusão do Shotokan pelo Japão.</p>
                             </div>
                             <div className="mx-auto p-4 w-full h-full md:hidden block">
-                                <img src="first_dojo.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58" />
+                                <img src="first_dojo.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58 rounded" />
                                 <p className="text-center mt-2 text-sm italic font-semibold">Primeiro Dojo Shotokan original.</p>
                             </div>
                         </div>
                         <div className="mx-auto p-4 w-full h-full hidden md:block">
-                            <img src="first_dojo.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58" />
+                            <img src="first_dojo.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58 rounded" />
                             <p className="text-center mt-2 text-sm italic font-semibold">Primeiro Dojo Shotokan original</p>
                         </div>
                     </div>
@@ -64,7 +63,7 @@ const Home = () => {
                         <p className="indent-8 leading-relaxed text-sm md:text-base">Com a intensificação da Segunda Guerra Mundial, a prática das artes marciais sofreu severas restrições. Após o ataque a Pearl Harbor, em 1941, o Japão entrou em um conflito total: Okinawa foi devastada, o dojo Shotokan foi destruído pelos bombardeios e o Karate chegou a ser temporariamente proibido pelas forças de ocupação aliadas. Nesse contexto, Funakoshi enfrentou profundas perdas pessoais, incluindo a morte de seu filho Yoshitaka (Gigo), responsável por importantes inovações técnicas no estilo, e, posteriormente, o falecimento de sua esposa.</p>
 
                         <div className="mx-auto p-4 w-full h-full">
-                            <img src="posguerra.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58 md:w-84 md:h-68" />
+                            <img src="posguerra.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58 md:w-84 md:h-68 rounded" />
                             <p className="text-center mt-2 text-sm italic font-semibold">Treino universitário (1930–1950)</p>
                         </div>
 

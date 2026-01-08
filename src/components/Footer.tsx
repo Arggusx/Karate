@@ -18,14 +18,13 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="text-md font-bold mb-4">Envie sugestões de melhorias</h2>
-            <div className="mt-4 flex justify-between gap-5">
-
+            <div className="mt-4 flex gap-5">
               <input
                 type="text"
                 placeholder="Digite aqui"
-                className="px-4 py-2 w-full rounded text-gray-800 bg-gray-300"
+                className="px-4 py-2 flex-1 rounded text-gray-800 bg-gray-300"
               />
-              <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded">
+              <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded shrink-0">
                 Enviar
               </button>
             </div>

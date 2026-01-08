@@ -24,30 +24,35 @@ function Header() {
 
   return (
     <header
-      className={`fixed left-0 right-0 z-50 transition-all ${scrolled
-        ? "backdrop-blur-md shadow-md bg-slate-900/60"
-        : "bg-black backdrop-blur-0 shadow-none"
-        }`}
+      className={`fixed left-0 right-0 z-50 transition-all py-4
+    ${menuOpen
+          ? "bg-[#030014] shadow-lg"
+          : scrolled
+            ? "bg-slate-900/60 backdrop-blur-md shadow-md"
+            : "bg-black shadow-none"
+        }
+  `}
     >
+
       <div
-        className={`flex justify-between py-3 px-5 sm:px-25 transition-all duration-300
+        className={`flex justify-between items-center px-5 sm:px-25 transition-all duration-300
                           ${menuOpen ?
-            "bg-[#030014]" : "bg-transparent"
+            "bg-[#030014] " : "bg-transparent"
           }`}
       >
 
 
-        <div className="flex items-center mb-4 md:mb-0">
-          <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mr-4">
+        <div className="flex gap-4 items-center md:mb-0">
+          <div className="md:w-16 md:h-16 w-13 h-13 bg-red-600 rounded-full flex items-center justify-center">
             <span className="text-white text-2xl font-bold">空</span>
           </div>
-          <h1 className=" text-2xl font-bold">
-            <Link id='Home' to='/' className='text-white'>SHOTOKAN <span className="text-red-500">KARATE</span></Link>
+          <h1 className="md:text-2xl font-bold">
+            <Link id='Home' to='/' className='text-white'>SHOTOKAN<span className="text-red-500 ml-2">KARATE</span></Link>
 
           </h1>
         </div>
         <button
-          className="sm:hidden p-2"
+          className="sm:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Abrir Menu"
         >
@@ -77,7 +82,7 @@ function Header() {
         )}
 
         {/*desktop */}
-        <nav className="hidden sm:flex gap-6 pt-2.5">
+        <nav className="hidden sm:flex gap-6">
           {navLinks.map(({ label, id }) => (
             <Link
               id={id}

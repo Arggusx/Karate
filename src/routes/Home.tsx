@@ -8,12 +8,12 @@ const Home = () => {
             <section id="historia" className="mb-20">
                 <div className="items-start mt-12 mx-auto w-[80%]">
                     <div className="md:w-[50%] mb-8 md:mb-0 md:pr-8">
-                        <h2 className="text-3xl font-bold mb-6 flex items-center">
-                            <span className="kanji-title bg-red-600 text-white text-4xl px-4 py-2 mr-4">歴</span>
+                        <h2 className="md:text-3xl text-2xl font-bold mb-8 my-12 flex items-center">
+                            <span className="kanji-title bg-red-600 text-white md:text-4xl md:px-4 md:py-2 py-1.5 px-3 mr-4">歴</span>
                             História do Karate Shotokan
                         </h2>
                     </div>
-                    <div className="md:flex md:justify-between gap-20">
+                    <div className="md:flex md:justify-between gap-10">
                         <div className="flex flex-col gap-3">
                             <h1 className="md:text-xl font-semibold mb-3 border-b-3 md:w-[50%] pb-1 border-red-600">Origem e formação de Gichin Funakoshi</h1>
                             <p className="indent-8 leading-relaxed text-sm md:text-base">Gichin Funakoshi nasceu em 1868, em Shuri, Okinawa, e foi criado pelos avós maternos, com forte influência da cultura clássica chinesa, especialmente da poesia e da caligrafia. Aos 11 anos iniciou seu treinamento nas artes marciais locais, estudando o Naha-Te com o mestre Anko Asato e o Shuri-Te com o mestre Anko Itosu, dois dos mais importantes expoentes do Karate de Okinawa. Essas experiências moldaram a base técnica e filosófica que mais tarde daria origem ao Karate Shotokan.</p>
@@ -24,17 +24,18 @@ const Home = () => {
                                 <p className="text-center mt-2 text-sm italic font-semibold block md:hidden">Gichin Funakoshi (1868-1957), fundador do Shotokan Karate</p>
                             </div>
 
-                            <h1 className="md:text-xl font-semibold my-3 border-b-3 md:w-[66%] pb-1 border-red-600">Desenvolvimento técnico e sistematização do Karate</h1>
-                            <p className="indent-8 leading-relaxed text-sm md:text-base">Além de mestre marcial, Funakoshi era poeta e utilizava o pseudônimo Shoto (“ondas de pinheiro”), inspirado nos sons do vento entre os pinheiros de sua terra natal. Esse nome viria a se tornar símbolo de seu estilo. Ao longo das décadas de 1930, ele aprofundou a organização técnica do Karate, criando exercícios estruturados de kumite, como o Gohon Kumite e o Ippon Kumite (1933), além do Ju Ippon Kumite (1934), estabelecendo uma progressão pedagógica clara para o ensino.</p>
+
                         </div>
                         <div className="mx-auto p-4 w-full h-full hidden md:block ">
-                            <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto md:h-90 md:w-70 rounded" />
+                            <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto h-90 w-70 rounded" />
                             <p className="text-center mt-2 text-sm italic font-semibold">Gichin Funakoshi (1868-1957), fundador do Shotokan Karate</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="w-[80%] mt-3 flex flex-col mx-auto mb-10 gap-3">
+                    <h1 className="md:text-xl font-semibold my-3 border-b-3 md:w-[66%] pb-1 border-red-600">Desenvolvimento técnico e sistematização do Karate</h1>
+                    <p className="indent-8 leading-relaxed text-sm md:text-base">Além de mestre marcial, Funakoshi era poeta e utilizava o pseudônimo Shoto (“ondas de pinheiro”), inspirado nos sons do vento entre os pinheiros de sua terra natal. Esse nome viria a se tornar símbolo de seu estilo. Ao longo das décadas de 1930, ele aprofundou a organização técnica do Karate, criando exercícios estruturados de kumite, como o Gohon Kumite e o Ippon Kumite (1933), além do Ju Ippon Kumite (1934), estabelecendo uma progressão pedagógica clara para o ensino.</p>
                     <p className="indent-8 leading-relaxed text-sm md:text-base">Em 1935, publicou a obra Karate-Do Kyohan, um dos livros mais importantes da história do Karate, dedicado ao estudo e à execução dos kata. Preocupado com o uso indevido da arte marcial, Funakoshi passou a desencorajar o ensino de técnicas excessivamente letais, como golpes fatais e quebras de articulações, direcionando o Karate para uma prática mais segura, educativa e acessível, sem perder sua eficácia marcial.</p>
                     <h1 className="my-3 md:text-xl font-semibold border-b-3 md:w-[33%] pb-1 border-red-600">Filosofia, ética e princípios do Karate-Do</h1>
                     <p className="indent-8 leading-relaxed text-sm md:text-base">Funakoshi defendia que o Karate deveria transcender o aspecto físico. Para isso, difundiu princípios éticos fundamentais, como o Dojo Kun e os Niju Kun (Vinte Preceitos do Karate), que abordam valores como respeito, humildade, perseverança, autocontrole e integridade moral. Em sua visão, o verdadeiro oponente não estava fora, mas dentro de cada praticante.</p>

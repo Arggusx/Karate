@@ -44,7 +44,98 @@ const Fund = () => {
                     </div>
                 </div>
 
-                <h2 className="md:text-3xl text-2xl font-bold mb-8 my-12 flex items-center">
+                <section id="dojo-kun" className="">
+                    <div className="w-[80%] rounded-b-lg bg-red-600 p-8 rounded-lg shadow-lg mx-auto">
+                        <div className="flex flex-col gap-10 w-[80%] mx-auto my-10">
+
+
+                            <div className="flex justify-between items-center mx-auto gap-10">
+                                <img src="kanji-dojokun.png" className="h-100 w-80" alt="" />
+                                <div className="dojo-kun md:text-xl text-xs space-y-4 flex flex-col">
+                                    <h2 className="md:text-5xl text-xl font-bold mb-8 mx-auto">
+                                        Dojo Kun
+                                    </h2>
+                                    <div className="mx-auto flex flex-col go gap-5">
+                                        <span className="text-blue-900 ordinal">1 "Esforçar-se para a perfeição do caráter"</span>
+                                        <span className="text-blue-900">1. "Ser fiel ao caminho da verdade"</span>
+                                        <span className="text-blue-900">1. "Cultivar o espírito de esforço"</span>
+                                        <span className="text-blue-900">1. "Respeitar acima de tudo"</span>
+                                        <span className="text-blue-900">1. "Conter o espírito de agressão"</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 className="text-xl flex justify-center md:gap-20 text-blue-900 font-bold">
+                                <div className="flex flex-col">
+                                    <p>人</p>
+                                    <p>格</p>
+                                    <p>完</p>
+                                    <p>成</p>
+                                    <p>に</p>
+                                    <p>努</p>
+                                    <p>め</p>
+                                    <p>る</p>
+                                    <p>こ</p>
+                                    <p>と</p>
+                                </div>
+                                <div className="flex flex-col">
+                                    <p>誠</p>
+                                    <p>の</p>
+                                    <p>道</p>
+                                    <p>を</p>
+                                    <p>守</p>
+                                    <p>る</p>
+                                    <p>こ</p>
+                                    <p>と</p>
+                                </div>
+                                <div className="flex flex-col">
+                                    <p>努</p>
+                                    <p>力</p>
+                                    <p>の</p>
+                                    <p>精</p>
+                                    <p>神</p>
+                                    <p>を</p>
+                                    <p>養</p>
+                                    <p>う</p>
+                                    <p>こ</p>
+                                    <p>と</p>
+                                </div>
+                                <div className="flex flex-col">
+                                    <p>礼</p>
+                                    <p>儀</p>
+                                    <p>を</p>
+                                    <p>重</p>
+                                    <p>ん</p>
+                                    <p>ず</p>
+                                    <p>る</p>
+                                    <p>こ</p>
+                                    <p>と</p>
+                                </div>
+                                <div className="flex flex-col">
+                                    <p>血</p>
+                                    <p>気</p>
+                                    <p>の</p>
+                                    <p>勇</p>
+                                    <p>を</p>
+                                    <p>戒</p>
+                                    <p>む</p>
+                                    <p>こ</p>
+                                    <p>と</p>
+                                </div>
+                                <div className="flex flex-col text-3xl justify-center ml-2">
+                                    <p>道</p>
+                                    <p>場</p>
+                                    <p>訓</p>
+                                </div>
+                            </h2>
+                        </div>
+                        <div className="mt-8 bg-black bg-opacity-30 p-6 rounded-lg max-w-[70%] mx-auto">
+                            <p className="italic text-center text-white">"O verdadeiro Karate é este: que no dia a dia, na vida cotidiana, mente e corpo sejam treinados e desenvolvidos num espírito de humildade; e que, em momentos críticos, sejamos totalmente devotados à causa da justiça."</p>
+                            <span className="text-white justify-end flex mt-5">- Gichin Funakoshi</span>
+                        </div>
+                    </div>
+                </section>
+
+                <h2 className="md:text-3xl text-2xl font-bold mb-8 flex items-center">
                     <span className="kanji-title bg-red-600 text-white md:text-4xl md:px-4 md:py-2 py-1.5 px-3 mr-4">衣</span>
                     Vestimenta
                 </h2>
@@ -63,7 +154,7 @@ const Fund = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div >
 
             <div className="bg-red-100 border-l-4 border-red-600 p-6 rounded-r-lg mb-10">
                 <h3 className="text-2xl font-bold mb-4 text-red-600">Faixas (Obi)</h3>
@@ -125,7 +216,7 @@ const Fund = () => {
 
 
 
-        </section>
+        </section >
     )
 }
 

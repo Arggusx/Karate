@@ -9,25 +9,31 @@ const Welcome = () => {
 
       <div className="container mx-auto px-4 pb-10 pt-30 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <ruby className="text-red-500 text-[50px]">
-              空<rt className="text-red-500 text-[15px]">から</rt>
-            </ruby>
-            <ruby className="text-red-500 text-[50px]">
-              手<rt className="text-red-500 text-[15px]">て</rt>
-            </ruby>
-            <ruby className="text-red-500 text-[50px]">
-              道<rt className="text-red-500 text-[15px]">どう</rt>
-            </ruby>{" "}
-            <ruby className="text-[50px]">
-              松<rt className="text-[15px]">しょう</rt>
-            </ruby>
-            <ruby className="text-[50px]">
-              濤<rt className="text-[15px]">とう</rt>
-            </ruby>
-            <ruby className="text-[50px]">
-              館<rt className="text-[15px]">かん</rt>
-            </ruby>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 flex justify-center items-center md:gap-10 gap-3">
+            <div className="flex flex-col">
+              <ruby className="text-red-500 text-[50px]">
+                空<rt className="text-red-500 text-[15px]">から</rt>
+              </ruby>
+              <ruby className="text-red-500 text-[50px]">
+                手<rt className="text-red-500 text-[15px]">て</rt>
+              </ruby>
+              <ruby className="text-red-500 text-[50px]">
+                道<rt className="text-red-500 text-[15px]">どう</rt>
+              </ruby>
+            </div>
+
+            <div className="tiger-bg rounded-full text-transparent h-50 w-50 border-8 border-red-600">ou</div>
+            <div className="flex flex-col">
+              <ruby className="text-[50px]">
+                松<rt className="text-[15px]">しょう</rt>
+              </ruby>
+              <ruby className="text-[50px]">
+                濤<rt className="text-[15px]">とう</rt>
+              </ruby>
+              <ruby className="text-[50px]">
+                館<rt className="text-[15px]">かん</rt>
+              </ruby>
+            </div>
           </h2>
           <p className="text-xl mb-8">
             O caminho da mão vazia - Tradição, disciplina e evolução pessoal

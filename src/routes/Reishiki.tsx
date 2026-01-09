@@ -95,28 +95,7 @@ const Reishiki = () => {
             </section>
 
             {/* Seção Dojo-kun */}
-            <section id="dojo-kun" className="mb-20">
-                <div className="bg-red-600 text-white p-8 rounded-lg shadow-lg">
-                    <h2 className="text-3xl font-bold mb-8 flex items-center justify-center">
-                        <span className="kanji-title bg-white text-red-600 text-4xl px-4 py-2 mr-4">道</span>
-                        Dojo Kun - Os Princípios do Shotokan
-                    </h2>
 
-                    <div className="max-w-3xl mx-auto">
-                        <ul className="dojo-kun text-xl space-y-4">
-                            <li className="font-bold">Hitotsu! Jinkaku kansei ni tsutomuru koto (人格完成に努めること) - Esforçar-se para a perfeição do caráter</li>
-                            <li className="font-bold">Hitotsu! Makoto no michi o mamoru koto (誠の道を守ること) - Ser fiel ao caminho da verdade</li>
-                            <li className="font-bold">Hitotsu! Doryoku no seishin o yashinau koto (努力の精神を養うこと) - Cultivar o espírito de esforço</li>
-                            <li className="font-bold">Hitotsu! Reigi o omonzuru koto (礼儀を重んずること) - Respeitar acima de tudo</li>
-                            <li className="font-bold">Hitotsu! Kekki no yu o imashimuru koto (血気の勇を戒むること) - Conter o espírito de agressão</li>
-                        </ul>
-
-                        <div className="mt-8 bg-black bg-opacity-30 p-6 rounded-lg">
-                            <p className="italic text-center">"O verdadeiro Karate é este: que no dia a dia, na vida cotidiana, mente e corpo sejam treinados e desenvolvidos num espírito de humildade; e que, em momentos críticos, sejamos totalmente devotados à causa da justiça." - Gichin Funakoshi</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </>
     )
 }

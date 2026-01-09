@@ -44,9 +44,9 @@ function Header() {
 
         <div className="flex gap-4 items-center md:mb-0">
           <div className="md:w-16 md:h-16 w-13 h-13 bg-red-600 rounded-full flex items-center justify-center">
-            <span className="text-white text-2xl font-bold">空</span>
+            <span className="text-white text-3xl font-bold">空</span>
           </div>
-          <h1 className="md:text-2xl font-bold">
+          <h1 className="md:text-2xl go">
             <Link id='Home' to='/' className='text-white'>SHOTOKAN<span className="text-red-500 ml-2">KARATE</span></Link>
 
           </h1>

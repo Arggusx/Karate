@@ -1,6 +1,41 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
 
+.yuji-hentaigana-akebono-regular {
+    font-family: "Yuji Hentaigana Akebono", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.yuji-hentaigana-akari-regular {
+    font-family: "Yuji Hentaigana Akari", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.slackside-one-regular {
+    font-family: "Slackside One", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.shojumaru-regular {
+    font-family: "Shojumaru", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'go';
+    src: url(/fonts/go3v2.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+.go {
+    font-family: 'go', sans-serif;
+}
+
 .conclusao-fundamentos {
     position: relative;
     overflow: hidden;
@@ -30,10 +65,10 @@
     z-index: 1;
 }
 
-.welcome-bg {
+.tiger-bg {
     background-image: url('tigre_logo.gif');
     background-position: center;
-    background-size: cover;
+    background-size: 110%;
     background-repeat: no-repeat;
 }
 
@@ -76,7 +111,7 @@ body {
 
 .dojo-kun li:before {
     content: "•";
-    color: #EF4444;
+    color: #000000;
     font-weight: bold;
     display: inline-block;
     width: 1em;

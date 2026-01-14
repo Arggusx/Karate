@@ -20,14 +20,14 @@ const Home = () => {
                             <p className="indent-8 leading-relaxed text-sm md:text-base">Em 1921, Funakoshi foi escolhido para representar Okinawa em Tóquio, realizando a primeira grande demonstração pública do Okinawa-te no Japão continental. A partir desse marco, passou a reorganizar e sistematizar a arte, adotando o nome Karate-Do, enfatizando o “Do” (caminho) como um meio de formação do caráter, da autodisciplina e do autocontrole, e não apenas como método de combate.</p>
 
                             <div className="mx-auto p-4 w-full h-full ">
-                                <img src="src/retratos/ginshin.webp" alt="Gichin Funakoshi" className="mx-auto block md:hidden h-80 w-60" />
-                                <p className="text-center mt-2 text-sm italic font-semibold block md:hidden">Gichin Funakoshi (1868-1957), fundador do Shotokan Karate</p>
+                                <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto block lg:hidden h-80 w-60" />
+                                <p className="text-center mt-2 text-sm italic font-semibold block lg:hidden">Gichin Funakoshi (1868-1957), fundador do Shotokan Karate</p>
                             </div>
 
 
                         </div>
-                        <div className="mx-auto p-4 w-full h-full hidden md:block ">
-                            <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto h-90 w-70 rounded" />
+                        <div className="mx-auto lg:p-4 w-full h-full hidden lg:block ">
+                            <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto h-80 lg:w-60 w-80 rounded" />
                             <p className="text-center mt-2 text-sm italic font-semibold">Gichin Funakoshi (1868-1957), fundador do Shotokan Karate</p>
                         </div>
                     </div>

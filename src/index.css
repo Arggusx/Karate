@@ -54,11 +54,12 @@
 
     filter: blur(6px);
     transform: scale(1.1);
-    /* evita bordas cortadas */
+
     opacity: 0.6;
 
     z-index: 0;
 }
+
 
 .conclusao-fundamentos>* {
     position: relative;

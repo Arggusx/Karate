@@ -1,45 +1,73 @@
-// src/components/Footer.tsx
+import { useState } from "react";
+import { toast } from "sonner";
+import { Instagram, Youtube, Facebook, Twitter } from "lucide-react";
 
-const Footer = () => {
+function Footer() {
+  const [email, setEmail] = useState("");
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.includes("@")) {
+      toast.error("Email inválido");
+      return;
+    }
+    toast.success("押忍! Inscrição confirmada.");
+    setEmail("");
+  };
+
   return (
-    <footer className="bg-black text-white pt-12">
-      <div className="container mx-auto px-4 pb-8">
-        <div className="grid md:grid-cols-4 gap-8">
-
-          <div>
-            <h3 className="text-xl font-bold mb-4">Contato</h3>
-            <p>Email: info@shotokan.com</p>
-            <p className="mt-2">Telefone: (82) 99612-5491</p>
-            <div className="mt-4 flex space-x-4">
-              <a href="#" className="hover:text-red-500 transition">Facebook</a>
-              <a href="#" className="hover:text-red-500 transition">Instagram</a>
-              <a href="#" className="hover:text-red-500 transition">YouTube</a>
-            </div>
-          </div>
-          <div>
-            <h2 className="text-md font-bold mb-4">Envie sugestões de melhorias</h2>
-            <div className="mt-4 flex gap-5">
-              <input
-                type="text"
-                placeholder="Digite aqui"
-                className="px-4 py-2 flex-1 rounded text-gray-800 bg-gray-300"
-              />
-              <button className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded shrink-0">
-                Enviar
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p>© 2025 Douglas - Todos os direitos reservados</p>
-          <p className="mt-2 text-sm text-gray-500">
-            空手に先手なし - "Não existe ataque primeiro no Karate"
+    <footer className="bg-jp-ink text-white pt-16 pb-8 relative overflow-hidden">
+      <div className="kanji-watermark" style={{ fontSize: 360, right: -40, bottom: -120, color: "rgba(188,0,45,0.08)" }}>道</div>
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-3 gap-12 relative">
+        <div>
+          <div className="font-jp-serif text-5xl text-jp-red mb-3">空手道</div>
+          <div className="text-xs tracking-[0.3em] uppercase text-white/60 mb-4">Karate-Dō · O Caminho</div>
+          <p className="text-sm text-white/70 leading-relaxed max-w-xs">
+            Um espaço dedicado ao estudo do Karatê Shotokan e da cultura que o nutre. Aprenda, respire, treine.
           </p>
         </div>
+
+        <div>
+          <h4 className="font-jp-serif text-jp-gold mb-4 tracking-widest text-sm uppercase">Siga o caminho</h4>
+          <div className="flex gap-4">
+            {[Instagram, Youtube, Facebook, Twitter].map((Ic, i) => (
+              <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/20 grid place-items-center hover:border-jp-red hover:text-jp-red transition-colors">
+                <Ic size={16} />
+              </a>
+            ))}
+          </div>
+          <p className="mt-6 text-xs text-white/40 leading-relaxed">
+            Niju Kun #1<br />
+            <span className="font-jp-serif text-white/70">礼に始まり、礼に終わる</span><br />
+            Tudo começa e termina com o cumprimento.
+          </p>
+        </div>
+
+        <div>
+          <h4 className="font-jp-serif text-jp-gold mb-4 tracking-widest text-sm uppercase">Newsletter</h4>
+          <p className="text-sm text-white/70 mb-3">Receba citações dos mestres e técnicas semanais.</p>
+          <form onSubmit={submit} className="flex gap-2">
+            <input
+              type="email"
+              required
+              placeholder="seu@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="ink-input flex-1 px-3 py-2 rounded-sm focus:outline-none focus:border-jp-red"
+            />
+            <button type="submit" className="bg-jp-red hover:bg-[#9a0024] text-white px-4 py-2 rounded-sm text-sm tracking-wider transition-colors">
+              Enviar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-white/40 relative">
+        <span>© {new Date().getFullYear()} Karate-Dō · Projeto educativo, sem fins lucrativos.</span>
+        <span className="font-jp-serif">心を磨け — Lapide o coração.</span>
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;

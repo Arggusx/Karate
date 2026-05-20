@@ -132,9 +132,137 @@ body {
     .font-great {
         font-family: 'Great Vibes', cursive;
     }
-
-    .font-yuji {
-        font-family: 'Yuji Boku', cursive;
-    }
-
 }
+
+/* --- ESTILOS ADAPTADOS DO FIGMA LAYOUT --- */
+:root {
+  --jp-red: #BC002D;
+  --jp-red-bright: #C41E3A;
+  --jp-black: #1A1A1A;
+  --jp-ink: #0D0D0D;
+  --jp-paper: #F5F1E8;
+  --jp-white: #FFFFFF;
+  --jp-gold: #D4AF37;
+  --jp-gray: #A0A0A0;
+}
+
+.font-jp-serif {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+}
+.font-jp-sans {
+  font-family: "Noto Sans JP", "Inter", sans-serif;
+}
+.font-display {
+  font-family: "Shippori Mincho", "Noto Serif JP", serif;
+  letter-spacing: 0.05em;
+}
+
+/* Seigaiha wave pattern */
+.bg-seigaiha {
+  background-color: var(--jp-paper);
+  background-image:
+    radial-gradient(circle at 50% 100%, transparent 18px, rgba(188, 0, 45, 0.06) 19px, rgba(188, 0, 45, 0.06) 20px, transparent 21px),
+    radial-gradient(circle at 0% 100%, transparent 18px, rgba(188, 0, 45, 0.06) 19px, rgba(188, 0, 45, 0.06) 20px, transparent 21px),
+    radial-gradient(circle at 100% 100%, transparent 18px, rgba(188, 0, 45, 0.06) 19px, rgba(188, 0, 45, 0.06) 20px, transparent 21px);
+  background-size: 40px 20px;
+  background-position: 0 0, 20px 0, 20px 0;
+}
+
+.bg-asanoha {
+  background-color: var(--jp-paper);
+  background-image:
+    linear-gradient(60deg, rgba(26, 26, 26, 0.04) 25%, transparent 25.5%, transparent 75%, rgba(26, 26, 26, 0.04) 75%),
+    linear-gradient(120deg, rgba(26, 26, 26, 0.04) 25%, transparent 25.5%, transparent 75%, rgba(26, 26, 26, 0.04) 75%);
+  background-size: 30px 52px;
+}
+
+.text-jp-red { color: var(--jp-red); }
+.bg-jp-red { background-color: var(--jp-red); }
+.bg-jp-ink { background-color: var(--jp-ink); }
+.text-jp-gold { color: var(--jp-gold); }
+.border-jp-red { border-color: var(--jp-red); }
+
+/* Brush stroke text reveal */
+@keyframes brushReveal {
+  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
+  60% { opacity: 1; }
+  100% { clip-path: inset(0 0 0 0); opacity: 1; }
+}
+.brush-reveal {
+  animation: brushReveal 1.8s cubic-bezier(0.77, 0, 0.18, 1) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes inkDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes ensoDraw {
+  0% { stroke-dashoffset: 1000; opacity: 0; }
+  20% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.page-anim {
+  animation: pageIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Card hover red glow */
+.card-elev {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card-elev:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px -10px rgba(188, 0, 45, 0.45), 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+/* Sumi-e divider */
+.sumi-divider {
+  height: 16px;
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 16'><path d='M2 8 C 30 2, 60 14, 100 8 S 170 2, 198 8' stroke='%231A1A1A' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>") center/200px 16px no-repeat;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--jp-red), var(--jp-gold));
+  z-index: 60;
+  transition: width 0.1s linear;
+}
+
+/* Newsletter input override */
+.ink-input {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+}
+.ink-input::placeholder { color: rgba(255,255,255,0.5); }
+
+/* Kanji watermark */
+.kanji-watermark {
+  font-family: "Shippori Mincho", serif;
+  position: absolute;
+  pointer-events: none;
+  color: rgba(188, 0, 45, 0.06);
+  font-weight: 700;
+  user-select: none;
+  line-height: 0.9;
+}
+

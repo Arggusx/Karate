@@ -1,102 +1,208 @@
-import Welcome from "../components/Welcome"
+import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Reveal } from "@/components/Reveal";
+import { NAV, PRECEITOS_FUNAKOSHI } from "@/components/data";
+import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 const Home = () => {
-    return (
-        <>
-            <Welcome />
+  const navigate = useNavigate();
 
-            <section id="historia" className="mb-20">
-                <div className="items-start mt-12 mx-auto w-[80%]">
-                    <div className="md:w-[50%] mb-8 md:mb-0 md:pr-8">
-                        <h2 className="md:text-3xl text-2xl font-bold mb-8 my-12 flex items-center">
-                            <span className="kanji-title bg-red-600 text-white md:text-4xl md:px-4 md:py-2 py-1.5 px-3 mr-4">歴</span>
-                            História do Karate Shotokan
-                        </h2>
-                    </div>
-                    <div className="md:flex md:justify-between gap-10">
-                        <div className="flex flex-col gap-3">
-                            <h1 className="md:text-xl font-semibold mb-3 border-b-3 md:w-[50%] pb-1 border-red-600">Origem e formação de Gichin Funakoshi</h1>
-                            <p className="indent-8 leading-relaxed text-sm md:text-base">Gichin Funakoshi nasceu em 1868, em Shuri, Okinawa, e foi criado pelos avós maternos, com forte influência da cultura clássica chinesa, especialmente da poesia e da caligrafia. Aos 11 anos iniciou seu treinamento nas artes marciais locais, estudando o Naha-Te com o mestre Anko Asato e o Shuri-Te com o mestre Anko Itosu, dois dos mais importantes expoentes do Karate de Okinawa. Essas experiências moldaram a base técnica e filosófica que mais tarde daria origem ao Karate Shotokan.</p>
-                            <p className="indent-8 leading-relaxed text-sm md:text-base">Em 1921, Funakoshi foi escolhido para representar Okinawa em Tóquio, realizando a primeira grande demonstração pública do Okinawa-te no Japão continental. A partir desse marco, passou a reorganizar e sistematizar a arte, adotando o nome Karate-Do, enfatizando o “Do” (caminho) como um meio de formação do caráter, da autodisciplina e do autocontrole, e não apenas como método de combate.</p>
+  return (
+    <div className="page-anim">
+      <section className="relative min-h-[92vh] overflow-hidden bg-jp-ink text-white flex items-center">
+        <motion.div
+          initial={{ scale: 0.6, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.4, ease: "easeOut" }}
+          className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] rounded-full"
+          style={{ background: "radial-gradient(circle, #BC002D 0%, #7a001d 60%, transparent 75%)" }}
+        />
+        <div className="absolute inset-0 opacity-30 mix-blend-luminosity">
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1529651228087-f0f728ea871e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1600&q=80"
+            alt="Karateca em silhueta"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D0D] via-[#0D0D0D]/70 to-transparent" />
 
-                            <div className="mx-auto p-4 w-full h-full ">
-                                <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto block lg:hidden h-80 w-60" />
-                                <p className="text-center mt-2 text-sm italic font-semibold block lg:hidden">Gichin Funakoshi (1868-1957), fundador do Shotokan Karate</p>
-                            </div>
+        <div className="relative max-w-7xl mx-auto px-5 lg:px-8 py-24 w-full">
+          <div className="font-jp-serif text-[22vw] md:text-[14rem] leading-none text-jp-red brush-reveal">
+            空手
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 0.9 }}
+            className="font-jp-serif text-xl md:text-3xl text-white/90 mt-4 max-w-2xl"
+          >
+            O caminho das mãos vazias
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 1 }}
+            className="text-jp-gold mt-4 max-w-xl leading-relaxed"
+          >
+            Tradição milenar, técnica precisa, espírito sereno. Bem-vindo ao estudo do Shotokan-ryū e da cultura japonesa que o originou.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.2 }}
+            className="mt-10 flex flex-wrap gap-4"
+          >
+            <button onClick={() => navigate("/historia")} className="bg-jp-red hover:bg-[#9a0024] cursor-pointer px-7 py-3 tracking-widest text-sm uppercase transition-colors flex items-center gap-2">
+              Começar o caminho <ArrowRight size={16} />
+            </button>
+            <button onClick={() => navigate("/tecnicas")} className="border border-white/40 hover:border-jp-gold hover:text-jp-gold cursor-pointer px-7 py-3 tracking-widest text-sm uppercase transition-colors">
+              Ver técnicas
+            </button>
+          </motion.div>
+        </div>
 
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40 text-xs tracking-[0.3em] uppercase">
+          ↓ Role para descobrir
+        </div>
+      </section>
 
-                        </div>
-                        <div className="mx-auto lg:p-4 w-full h-full hidden lg:block ">
-                            <img src="ginshin.webp" alt="Gichin Funakoshi" className="mx-auto h-80 lg:w-60 w-80 rounded" />
-                            <p className="text-center mt-2 text-sm italic font-semibold">Gichin Funakoshi (1868-1957), fundador do Shotokan Karate</p>
-                        </div>
-                    </div>
+      <section className="relative py-24 bg-seigaiha">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-14">
+              <div className="font-jp-serif text-jp-red text-sm tracking-widest uppercase">案内</div>
+              <h2 className="font-jp-serif text-3xl md:text-4xl mt-2">O que você encontrará aqui</h2>
+              <div className="sumi-divider mt-4 max-w-xs mx-auto" />
+            </div>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            {NAV.filter((n) => n.id !== "home").map((n, i) => (
+              <Reveal key={n.id} delay={i * 80}>
+                <button
+                  onClick={() => navigate(n.id === "home" ? "/" : `/${n.id}`)}
+                  className="card-elev w-full text-left bg-white cursor-pointer border border-black/5 p-6 h-full flex flex-col gap-3 group"
+                >
+                  <div className="font-jp-serif text-5xl text-jp-red group-hover:scale-110 origin-left transition-transform">{n.kanji}</div>
+                  <div className="font-jp-serif tracking-wider">{n.label}</div>
+                  <div className="text-xs text-black/50 leading-relaxed">
+                    {n.id === "historia" && "Das raízes em Okinawa ao mundo."}
+                    {n.id === "fundamentos" && "Kihon, Kata e Kumite."}
+                    {n.id === "beneficios" && "Corpo, mente, espírito."}
+                    {n.id === "tecnicas" && "Socos, chutes, defesas e bases."}
+                    {n.id === "curiosidades" && "Fatos e segredos do estilo."}
+                  </div>
+                  <span className="mt-auto text-xs text-jp-red tracking-widest uppercase flex items-center gap-1">
+                    Explorar <ArrowRight size={12} />
+                  </span>
+                </button>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Quote */}
+      <section className="relative py-28 bg-jp-ink text-white overflow-hidden">
+        <div className="kanji-watermark" style={{ fontSize: 380, left: -30, top: -60 }}>道</div>
+        <div className="max-w-4xl mx-auto px-5 lg:px-8 text-center relative">
+          <Reveal>
+            <div className="font-jp-serif text-jp-red text-6xl md:text-8xl mb-6">空手に先手なし</div>
+            <p className="text-white/80 text-lg md:text-xl font-jp-serif">
+              "No karatê não existe atitude ofensiva."
+            </p>
+            <div className="mt-6 text-white/50 tracking-widest uppercase text-xs">Gichin Funakoshi · 船越義珍</div>
+            <div className="sumi-divider mt-8 max-w-xs mx-auto opacity-60" style={{ filter: "invert(1)" }} />
+            <ul className="mt-8 space-y-2 text-white/60 text-sm font-jp-serif">
+              {PRECEITOS_FUNAKOSHI.slice(1).map((p, i) => <li key={i}>· {p}</li>)}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="py-24 bg-jp-ink text-white relative overflow-hidden">
+        <div className="kanji-watermark" style={{ fontSize: 520, left: -80, top: -100, color: "rgba(188,0,45,0.1)" }}>虎</div>
+        <div className="absolute inset-0 opacity-20">
+          <ImageWithFallback
+            src="https://images.unsplash.com/photo-1601878457596-d805acc3626a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=1600&q=80"
+            alt="Dojo"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-jp-ink via-jp-ink/90 to-jp-ink/40" />
+
+        <div className="relative max-w-6xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 border border-jp-gold/40 px-3 py-1 text-jp-gold tracking-widest text-[10px] uppercase">
+              <span className="font-jp-serif">道場</span> Dojo parceiro · Convite especial
+            </div>
+            <h2 className="font-jp-serif text-4xl md:text-5xl mt-4 leading-tight">
+              Visite um dojo.<br />
+              <span className="text-jp-red">Comece a treinar no</span><br />
+              <span className="text-jp-gold">Academia Tigre de Karatê</span>.
+            </h2>
+            <p className="text-white/75 mt-5 leading-relaxed max-w-xl">
+              Mais do que uma academia, uma família. Sob a orientação do
+              <strong className="text-white"> Sensei Egnaldo (faixa-preta 4º Dan)</strong>, o
+              <strong className="text-jp-gold"> Tigre de Karatê</strong> ensina o autêntico
+              Shotokan-ryū — disciplina, técnica precisa e respeito acima de tudo. Aulas para
+              crianças, jovens, adults e veteranos. Sua primeira aula é por nossa conta.
+            </p>
+
+            <div className="mt-6 grid grid-cols-3 gap-3 max-w-md">
+              <div className="bg-white/5 border border-white/10 p-3 text-center">
+                <div className="font-jp-serif text-jp-red text-2xl">4°</div>
+                <div className="text-[10px] tracking-widest uppercase text-white/60">Dan · Sensei Egnaldo</div>
+              </div>
+              <div className="bg-white/5 border border-white/10 p-3 text-center">
+                <div className="font-jp-serif text-jp-red text-2xl">5-60</div>
+                <div className="text-[10px] tracking-widest uppercase text-white/60">Anos · Idades</div>
+              </div>
+              <div className="bg-white/5 border border-white/10 p-3 text-center">
+                <div className="font-jp-serif text-jp-red text-2xl">1ª</div>
+                <div className="text-[10px] tracking-widest uppercase text-white/60">Aula grátis</div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#contato"
+                className="bg-jp-red hover:bg-[#9a0024] text-white px-7 py-3 tracking-widest text-sm uppercase transition-colors"
+              >
+                Agendar aula experimental
+              </a>
+              <button
+                onClick={() => navigate("/fundamentos")}
+                className="border border-white/30 hover:border-jp-gold hover:text-jp-gold cursor-pointer px-7 py-3 tracking-widest text-sm uppercase transition-colors"
+              >
+                Conheça os fundamentos
+              </button>
+            </div>
+          </Reveal>
+
+          <Reveal delay={150}>
+            <div className="relative">
+              <div className="aspect-square max-w-md mx-auto relative">
+                <div className="absolute inset-0 rounded-full border-[6px] border-jp-red" />
+                <div className="absolute inset-4 rounded-full border border-jp-gold/40" />
+                <div className="absolute inset-0 grid place-items-center">
+                  <div className="text-center">
+                    <div className="font-jp-serif text-[10rem] leading-none text-jp-red">虎</div>
+                    <div className="font-jp-serif text-jp-gold tracking-[0.4em] text-xs mt-3 uppercase">Tigre de Karatê</div>
+                    <div className="text-white/40 text-[10px] tracking-widest mt-1 uppercase">Shotokan-Ryū · Dōjō</div>
+                  </div>
                 </div>
-
-                <div className="w-[80%] mt-3 flex flex-col mx-auto mb-10 gap-3">
-                    <h1 className="md:text-xl font-semibold my-3 border-b-3 md:w-[66%] pb-1 border-red-600">Desenvolvimento técnico e sistematização do Karate</h1>
-                    <p className="indent-8 leading-relaxed text-sm md:text-base">Além de mestre marcial, Funakoshi era poeta e utilizava o pseudônimo Shoto (“ondas de pinheiro”), inspirado nos sons do vento entre os pinheiros de sua terra natal. Esse nome viria a se tornar símbolo de seu estilo. Ao longo das décadas de 1930, ele aprofundou a organização técnica do Karate, criando exercícios estruturados de kumite, como o Gohon Kumite e o Ippon Kumite (1933), além do Ju Ippon Kumite (1934), estabelecendo uma progressão pedagógica clara para o ensino.</p>
-                    <p className="indent-8 leading-relaxed text-sm md:text-base">Em 1935, publicou a obra Karate-Do Kyohan, um dos livros mais importantes da história do Karate, dedicado ao estudo e à execução dos kata. Preocupado com o uso indevido da arte marcial, Funakoshi passou a desencorajar o ensino de técnicas excessivamente letais, como golpes fatais e quebras de articulações, direcionando o Karate para uma prática mais segura, educativa e acessível, sem perder sua eficácia marcial.</p>
-                    <h1 className="my-3 md:text-xl font-semibold border-b-3 md:w-[33%] pb-1 border-red-600">Filosofia, ética e princípios do Karate-Do</h1>
-                    <p className="indent-8 leading-relaxed text-sm md:text-base">Funakoshi defendia que o Karate deveria transcender o aspecto físico. Para isso, difundiu princípios éticos fundamentais, como o Dojo Kun e os Niju Kun (Vinte Preceitos do Karate), que abordam valores como respeito, humildade, perseverança, autocontrole e integridade moral. Em sua visão, o verdadeiro oponente não estava fora, mas dentro de cada praticante.</p>
-                    <p className="indent-8 leading-relaxed text-sm md:text-base">Essa filosofia é sintetizada em sua máxima mais conhecida: “Karate ni sente nashi” (“No Karate não há primeiro ataque”), que reforça o caráter defensivo e pacifista da arte. Essa abordagem contribuiu decisivamente para que o Karate fosse reconhecido como um caminho educativo e formativo, amplamente aceito em ambientes escolares e universitários.</p>
-
-                    <div className="flex justify-between">
-                        <div className="flex flex-col gap-6">
-                            <h1 className="mt-3 md:text-xl font-semibold border-b-3 md:w-[45%] w-[80%] pb-1 border-red-600">Consolidação do Shotokan no Japão</h1>
-                            <div>
-                                <p className="indent-8 leading-relaxed text-sm md:text-base">Após se estabelecer definitivamente no Japão, Funakoshi promoveu adaptações nos nomes e nas formas dos kata, padronizando-os para facilitar o ensino e a compreensão no contexto cultural japonês. Em 1936, alterou a escrita do termo “Karate”, que passou de “Mãos Chinesas” para “Mãos Vazias”, reforçando seu caráter universal e desvinculado de influências nacionais específicas.</p>
-                                <p className="indent-8 leading-relaxed text-sm md:text-base">Em 1939, foi inaugurado o primeiro dojo oficial do estilo, denominado Shotokan (“Casa de Shoto”), que também passou a designar o próprio estilo. Durante esse período, o Karate se expandiu rapidamente por meio de clubes universitários, como os das universidades Keio, Waseda e Takushoku, que tiveram papel essencial na formação de instrutores e na difusão do Shotokan pelo Japão.</p>
-                            </div>
-                            <div className="mx-auto p-4 w-full h-full md:hidden block">
-                                <img src="first_dojo.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58 rounded" />
-                                <p className="text-center mt-2 text-sm italic font-semibold">Primeiro Dojo Shotokan original.</p>
-                            </div>
-                        </div>
-                        <div className="mx-auto p-4 w-full h-full hidden md:block">
-                            <img src="first_dojo.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58 rounded" />
-                            <p className="text-center mt-2 text-sm italic font-semibold">Primeiro Dojo Shotokan original</p>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col gap-6">
-                        <h1 className="md:text-xl font-semibold my-3 border-b-3 md:w-[41%] pb-1 border-red-600">A Segunda Guerra Mundial e o período pós-guerra</h1>
-                        <p className="indent-8 leading-relaxed text-sm md:text-base">Com a intensificação da Segunda Guerra Mundial, a prática das artes marciais sofreu severas restrições. Após o ataque a Pearl Harbor, em 1941, o Japão entrou em um conflito total: Okinawa foi devastada, o dojo Shotokan foi destruído pelos bombardeios e o Karate chegou a ser temporariamente proibido pelas forças de ocupação aliadas. Nesse contexto, Funakoshi enfrentou profundas perdas pessoais, incluindo a morte de seu filho Yoshitaka (Gigo), responsável por importantes inovações técnicas no estilo, e, posteriormente, o falecimento de sua esposa.</p>
-
-                        <div className="mx-auto p-4 w-full h-full">
-                            <img src="posguerra.jpg" alt="Primeiro Dojo Shotokan" className="mx-auto my-4 w-74 h-58 md:w-84 md:h-68 rounded" />
-                            <p className="text-center mt-2 text-sm italic font-semibold">Treino universitário (1930–1950)</p>
-                        </div>
-
-                        <p className="indent-8 leading-relaxed text-sm md:text-base">No período pós-guerra, antigos alunos atuaram para que o Karate fosse reconhecido como prática educativa e esportiva, desvinculada do militarismo. Esse esforço resultou, em 1949, na fundação da Nihon Karate Kyokai (Japan Karate Association – JKA), com Funakoshi como instrutor-chefe. Em 1955, a organização inaugurou seu próprio dojo, consolidando a retomada e a expansão do Shotokan.</p>
-                    </div>
-
-                    <h1 className="my-3 md:text-xl font-semibold border-b-3 md:w-[37%] pb-1 border-red-600">Características técnicas e legado do Shotokan</h1>
-                    <p className="indent-8 leading-relaxed text-sm md:text-base">O Shotokan passou a se distinguir por suas posturas longas e baixas, movimentos predominantemente lineares, forte rotação do quadril e ênfase na potência gerada pelo corpo inteiro. Essas características refletem a busca de Funakoshi pelo equilíbrio entre força, controle, eficiência e disciplina mental. Diferente de outros estilos de Karate, o Shotokan valoriza a clareza técnica, a precisão e a padronização dos movimentos.</p>
-                    <p className="indent-8 leading-relaxed text-sm md:text-base">Mesmo diante das adversidades históricas e pessoais, Funakoshi permaneceu fiel ao seu espírito pacifista e educativo. Faleceu em 26 de abril de 1957, aos 89 anos, sendo reconhecido como o “Pai do Karate Moderno”. Em sua lápide está gravado o princípio que resume toda a sua filosofia de vida e arte marcial: Karate ni sente nashi (“No Karate não existe atitude ofensiva”).</p>
-
-                </div>
-
-                <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg w-[85%] mx-auto">
-                    <h3 className="text-2xl font-bold mb-4 text-red-400">A Evolução do Karate</h3>
-                    <div className="grid md:grid-cols-3 gap-6">
-                        <div className="bg-gray-700 p-4 rounded-lg">
-                            <h4 className="font-bold mb-2 text-red-300">Origem em Okinawa</h4>
-                            <p>O Karate surgiu em Okinawa como uma síntese de artes marciais locais (Te) com influências chinesas (Kempo). Era praticado secretamente durante o período de proibição de armas.</p>
-                        </div>
-                        <div className="bg-gray-700 p-4 rounded-lg">
-                            <h4 className="font-bold mb-2 text-red-300">Introdução no Japão</h4>
-                            <p>Em 1922, Funakoshi foi convidado a demonstrar o Karate em Tóquio. Sua apresentação foi tão impressionante que ficou no Japão para ensinar, adaptando a arte para a cultura japonesa.</p>
-                        </div>
-                        <div className="bg-gray-700 p-4 rounded-lg">
-                            <h4 className="font-bold mb-2 text-red-300">Sistematização</h4>
-                            <p>Funakoshi e seus alunos, incluindo seu filho Yoshitaka, desenvolveram o estilo Shotokan com ênfase em posturas baixas, movimentos lineares e potentes, e um sistema de graduação.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </>
-    );
+              </div>
+              <div className="mt-6 text-center text-xs tracking-[0.3em] uppercase text-white/50 font-jp-serif">
+                押忍 · Força, disciplina, espírito
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Home;

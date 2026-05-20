@@ -1,120 +1,98 @@
-import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { NAV, type PageId } from "./data";
 
 function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const location = useLocation();
 
+  // Determina qual é o PageId com base na rota atual do react-router-dom
+  const getPageIdFromPath = (path: string): PageId => {
+    if (path === "/") return "home";
+    const cleaned = path.replace("/", "");
+    if (cleaned === "fundamentos") return "fundamentos";
+    if (cleaned === "historia") return "historia";
+    if (cleaned === "beneficios") return "beneficios";
+    if (cleaned === "tecnicas") return "tecnicas";
+    if (cleaned === "curiosidades") return "curiosidades";
+    return "home";
+  };
+
+  const current = getPageIdFromPath(location.pathname);
+
+  // Calcula o progresso do scroll de forma autônoma
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const scrolled = (window.scrollY / totalHeight) * 100;
+        setProgress(scrolled);
+      } else {
+        setProgress(0);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { label: "História", id: "/" },
-    { label: "Fundamentos", id: "Fund" },
-    { label: "Técnicas", id: "Reishiki" },
-    { label: "Benefícios", id: "Beneficios" },
-  ];
+  const getPathFromPageId = (id: PageId) => {
+    return id === "home" ? "/" : `/${id}`;
+  };
 
   return (
-    <header
-      className={`fixed left-0 right-0 z-50 transition-all py-4
-    ${menuOpen
-          ? "bg-[#030014] shadow-lg"
-          : scrolled
-            ? "bg-slate-900/60 backdrop-blur-md shadow-md"
-            : "bg-black shadow-none"
-        }
-  `}
-    >
+    <>
+      <div className="scroll-progress" style={{ width: `${progress}%` }} />
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#0D0D0D]/90 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8 flex items-center justify-between h-16">
+          <Link to="/" className="flex items-center gap-3 group">
+            <span className="font-jp-serif text-2xl text-jp-red group-hover:text-jp-gold transition-colors">空手</span>
+            <span className="hidden sm:block text-white tracking-widest text-xs uppercase">Shotokan-Ryū</span>
+          </Link>
 
-      <div
-        className={`flex justify-between items-center px-5 sm:px-25 transition-all duration-300
-                          ${menuOpen ?
-            "bg-[#030014] " : "bg-transparent"
-          }`}
-      >
-
-
-        <div className="flex gap-4 items-center md:mb-0">
-          <div className="md:w-16 md:h-16 w-13 h-13 bg-red-600 rounded-full flex items-center justify-center">
-            <span className="text-white text-3xl font-bold">空</span>
-          </div>
-          <h1 className="md:text-2xl go">
-            <Link id='Home' to='/' className='text-white'>SHOTOKAN<span className="text-red-500 ml-2">KARATE</span></Link>
-
-          </h1>
-        </div>
-        <button
-          className="sm:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir Menu"
-        >
-          {menuOpen ? (
-            <X className="w-6 h-6 text-red-500 " />
-          ) : (
-            <Menu className="w-6 h-6 text-red-500" />
-          )}
-        </button>
-
-        {/*mobile*/}
-        {menuOpen && (
-          <div className="sm:hidden absolute top-full left-0 right-0 transition-all bg-[#030014] z-40 shadow-lg">
-            <div className="flex flex-col items-start gap-4 p-4">
-              {navLinks.map(({ label, id }) => (
+          <ul className="hidden lg:flex items-center gap-1">
+            {NAV.map((n) => (
+              <li key={n.id}>
                 <Link
-                  id={id}
-                  to={id}
-                  className="text-lg font-bold text-red-500 pl-2"
-                  onClick={() => setMenuOpen(false)}
+                  to={getPathFromPageId(n.id)}
+                  className={`px-3 py-2 flex items-center gap-2 text-sm transition-colors relative ${
+                    current === n.id ? "text-jp-gold" : "text-white/80 hover:text-white"
+                  }`}
                 >
-                  {label}
+                  <span className="font-jp-serif text-base">{n.kanji}</span>
+                  <span>{n.label}</span>
+                  {current === n.id && (
+                    <span className="absolute -bottom-1 left-3 right-3 h-[2px] bg-jp-red" />
+                  )}
                 </Link>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
+
+        </div>
+
+        {open && (
+          <ul className="lg:hidden bg-[#0D0D0D] border-t border-white/10">
+            {NAV.map((n) => (
+              <li key={n.id}>
+                <Link
+                  to={getPathFromPageId(n.id)}
+                  onClick={() => setOpen(false)}
+                  className={`w-full px-6 py-4 flex items-center gap-4 text-left border-b border-white/5 ${
+                    current === n.id ? "text-jp-gold bg-white/5" : "text-white/80"
+                  }`}
+                >
+                  <span className="font-jp-serif text-xl w-8">{n.kanji}</span>
+                  <span>{n.label}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         )}
-
-        {/*desktop */}
-        <nav className="hidden sm:flex gap-6">
-          {navLinks.map(({ label, id }) => (
-            <Link
-              id={id}
-              to={id}
-              className="group relative px-1 py-2 text-lg font-bold"
-            >
-              <span className="relative z-10 bg-clip-text text-red-600 transition-all duration-300 ">
-                {label}
-              </span>
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-red-600 transform origin-left transition-transform duration-300 group-hover:scale-x-100 scale-x-0"></span>
-            </Link>
-          ))}
-        </nav>
-      </div>
-
-
-    </header>
+      </nav>
+    </>
   );
-};
-
-//<header className="bg-black text-white shadow-lg">
-//   <div className="container mx-auto px-4 py-6">
-//     <div className="flex flex-col md:flex-row justify-between items-center">
-//       
-//       <nav className="flex flex-wrap justify-center gap-4 md:gap-8">
-//         <Link id='historia' to='/' className="hover:text-red-500 transition text-xl">História</Link>
-//         <Link id='fundamentos' to='Fund' className="hover:text-red-500 transition text-xl">Fundamentos</Link>
-//         <Link id='tecnicas' to='Reishiki' className="hover:text-red-500 transition text-xl">Práticas</Link>
-//         <Link id='beneficios' to='Beneficios' className="hover:text-red-500 transition text-xl">Benefícios</Link>
-//       </nav>
-//     </div>
-//   </div>
-// </header>
+}
 
 export default Header;

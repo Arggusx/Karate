@@ -1,18 +1,6 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
 
-.yuji-hentaigana-akebono-regular {
-    font-family: "Yuji Hentaigana Akebono", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.yuji-hentaigana-akari-regular {
-    font-family: "Yuji Hentaigana Akari", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
 .slackside-one-regular {
     font-family: "Slackside One", cursive;
     font-weight: 400;
@@ -42,24 +30,6 @@
     color: #1A1A1A;
 }
 
-.conclusao-fundamentos::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-image: url('kanji-ku-2.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    filter: blur(6px);
-    transform: scale(1.1);
-
-    opacity: 0.6;
-
-    z-index: 0;
-}
-
 
 .conclusao-fundamentos>* {
     position: relative;
@@ -73,7 +43,7 @@
     background-repeat: no-repeat;
 }
 
-body {
+/* body {
     background-color: #F5F2E8;
     background-image:
         url('washi-fibers.jpg');
@@ -83,7 +53,7 @@ body {
     background-repeat: no-repeat;
     color: #1A1A1A;
     font-family: 'Noto Serif JP', serif;
-}
+} */
 
 .japanese-bg {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23ef4444" stroke-width="0.5" d="M0,0 L100,100 M100,0 L0,100" opacity="0.1"/></svg>');
@@ -265,4 +235,4 @@ body {
   user-select: none;
   line-height: 0.9;
 }
-
+

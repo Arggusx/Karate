@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { NAV, type PageId } from "./data";
 
@@ -20,6 +21,10 @@ function Header() {
   };
 
   const current = getPageIdFromPath(location.pathname);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   // Calcula o progresso do scroll de forma autônoma
   useEffect(() => {
@@ -70,15 +75,32 @@ function Header() {
             ))}
           </ul>
 
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-sm border border-white/15 text-white/90 transition-colors hover:border-[#BC002D] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#BC002D]/70"
+            aria-label={open ? "Fechar menu de navegacao" : "Abrir menu de navegacao"}
+            aria-controls="mobile-navigation"
+            aria-expanded={open}
+          >
+            {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+          </button>
         </div>
 
-        {open && (
-          <ul className="lg:hidden bg-[#0D0D0D] border-t border-white/10">
+        <div
+          id="mobile-navigation"
+          className={`lg:hidden overflow-hidden bg-[#0D0D0D] transition-[max-height,opacity] duration-300 ease-out ${
+            open ? "max-h-[28rem] border-t border-white/10 opacity-100" : "max-h-0 border-t-0 opacity-0 pointer-events-none"
+          }`}
+          aria-hidden={!open}
+        >
+          <ul>
             {NAV.map((n) => (
               <li key={n.id}>
                 <Link
                   to={getPathFromPageId(n.id)}
                   onClick={() => setOpen(false)}
+                  tabIndex={open ? 0 : -1}
                   className={`w-full px-6 py-4 flex items-center gap-4 text-left border-b border-white/5 ${
                     current === n.id ? "text-jp-gold bg-white/5" : "text-white/80"
                   }`}
@@ -89,7 +111,7 @@ function Header() {
               </li>
             ))}
           </ul>
-        )}
+        </div>
       </nav>
     </>
   );

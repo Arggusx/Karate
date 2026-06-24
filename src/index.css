@@ -144,6 +144,7 @@ body {
   --jp-white: #FFFFFF;
   --jp-gold: #D4AF37;
   --jp-gray: #A0A0A0;
+  --site-header-height: 4rem;
 }
 
 .font-jp-serif {
@@ -221,6 +222,14 @@ body {
   animation: pageIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.tecnicas-page {
+  animation: pageFadeIn 0.35s ease-out both;
+}
+
 /* Card hover red glow */
 .card-elev {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -265,4 +274,4 @@ body {
   user-select: none;
   line-height: 0.9;
 }
-
+

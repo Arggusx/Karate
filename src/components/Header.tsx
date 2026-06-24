@@ -105,7 +105,6 @@ function Header() {
                     current === n.id ? "text-jp-gold bg-white/5" : "text-white/80"
                   }`}
                 >
-                  <span className="font-jp-serif text-xl w-8">{n.kanji}</span>
                   <span>{n.label}</span>
                 </Link>
               </li>

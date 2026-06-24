@@ -81,7 +81,7 @@ export function Tecnicas() {
   const tec = open !== null ? TECNICAS[open] : null;
 
   return (
-    <div className="page-anim">
+    <div className="tecnicas-page">
       <section className="relative bg-jp-ink text-white py-28 overflow-hidden">
         <div className="kanji-watermark" style={{ fontSize: 520, right: -60, top: -100, color: "rgba(188,0,45,0.1)" }}>技術</div>
         <div className="max-w-5xl mx-auto px-5 lg:px-8 relative">
@@ -95,7 +95,7 @@ export function Tecnicas() {
       </section>
 
       {/* Search + Filters sticky bar */}
-      <section className="py-6 bg-jp-paper sticky top-16 z-40 border-b border-black/5 shadow-sm">
+      <section className="tecnicas-controls py-6 bg-jp-paper border-b border-black/5 shadow-sm">
         <div className="max-w-6xl mx-auto px-5 lg:px-8 flex flex-col gap-4">
           {/* Search */}
           <div className="relative max-w-xl mx-auto w-full">

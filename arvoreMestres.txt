@@ -1,0 +1,44 @@
+			[Sokon "Bushi" Matsumura]
+                                   │
+                     ┌─────────────┴─────────────┐
+                     │                           │
+              [Anko Asato]                 [Anko Itosu]
+                     │                           │
+                     └─────────────┬─────────────┘
+                                   │
+                           [Gichin Funakoshi]
+                    (Criador do Karate Shotokan)
+                                   │
+   ┌───────────────────────┬───────┴───────────────────┬────────────────────────┐
+   │                       │                           │                        │
+[Yoshitaka Funakoshi]  [Isao Obata]            [Masatoshi Nakayama]    [Hidetaka Nishiyama]
+(Inovação Técnica)    (1º Pres. JKA)           (Mestre-Chefe JKA)      (Co-fundador JKA / ITKF)
+   │                       │                           │                        │
+   ├─► (Base do Kumite     └─► [Tsutomu Ohshima]       │                        ├─► [Avi Rokah]
+   │    e chutes altos)        (Shotokan Karate        │                        ├─► [Vladimir Jorga]
+   │                            of America - SKA)      │                        └─► [Justo Gómez]
+   │                                                   │                            *(Supervisionou
+   │                                                   │                             Kanazawa, Shirai,
+   │                                                   │                             Mikami na JKA)*
+   │                                                   │
+   └───────────────────────┬───────────────────────────┴────────────────────────┐
+                           │                                                    │
+                 [Mestres do Kenshusei JKA]                                [Taiji Kase]
+          (Formados sob Nakayama/Nishiyama/Kase)                       (Kase Ha / WKSA)
+                           │                                                    │
+ ┌──────────┬──────────────┼──────────────┬─────────────┐             ┌─────────┴─────────┬──────────────┐
+ │          │              │              │             │             │                   │              │
+[Kanazawa] [Enoeda]    [Okazaki]       [Asai]        [Yahara]     [Hiroshi Shirai]      [Dirk Heene] [Jean-Pierre Lavorato]
+ (SKIF)    (KUGB/JKA)   (ISKF)         (JKS)          (KWF)       (FIKTA/ITKF Itália)
+                            │
+               ┌────────────┴────────────────────┐
+               │                                 │
+       [Juichi Sagara]                   [Yasutaka Tanaka]  ... (e [Luiz Tasuke Watanabe])
+ (Pioneiro JKA na Am. do Sul)             (JKA Brasil)
+               │                                 │
+               └────────────────┬────────────────┘
+                                │
+                      [Sensei Edson Nakama]
+                   (7º/8º Dan - FPK / CBK / Dojo Nakama)
+                   
+postgresql://neondb_owner:npg_2AO1uBkLDnIV@ep-lingering-mode-actyhemt-pooler.sa-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require

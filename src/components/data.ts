@@ -1,4 +1,4 @@
-export type PageId = "home" | "historia" | "fundamentos" | "beneficios" | "tecnicas" | "curiosidades";
+export type PageId = "home" | "historia" | "fundamentos" | "beneficios" | "tecnicas" | "linhagem" | "curiosidades";
 
 export const NAV: { id: PageId; label: string; kanji: string }[] = [
   { id: "home", label: "Home", kanji: "家" },
@@ -6,6 +6,7 @@ export const NAV: { id: PageId; label: string; kanji: string }[] = [
   { id: "fundamentos", label: "Fundamentos", kanji: "基本" },
   { id: "beneficios", label: "Benefícios", kanji: "利益" },
   { id: "tecnicas", label: "Técnicas", kanji: "技術" },
+  { id: "linhagem", label: "Linhagem", kanji: "系譜" },
   { id: "curiosidades", label: "Curiosidades", kanji: "雑学" },
 ];
 
@@ -259,6 +260,12 @@ export const CURIOSIDADES = [
   { titulo: "O Tigre de Shotokan", text: "O símbolo do tigre dentro de um círculo foi desenhado por Hoan Kosugi. O tigre representa força e calma, qualidades buscadas pelo praticante." },
   { titulo: "Niju Kun — os 20 preceitos", text: "Funakoshi deixou 20 princípios filosóficos. O primeiro: 'Karate começa e termina com o cumprimento (rei)'." },
   { titulo: "Kime — o instante decisivo", text: "決め — a contração total e instantânea de músculos no impacto da técnica. Sem kime, o golpe não tem vida." },
+  { titulo: "A faixa preta não é o final", text: "Shodan (初段) significa literalmente 'primeiro degrau'. A faixa preta marca o início do aprendizado real — quando o praticante finalmente conhece o suficiente para começar a compreender." },
+  { titulo: "O dojo mais antigo do mundo", text: "O Shotokan original (1936) em Zōshigaya, Tóquio, foi destruído em 1945. Hoje, o dojo da JKA Honbu em Ebisu (Tóquio) é considerado o quartel-general do estilo." },
+  { titulo: "Kobudō — armas de fazenda", text: "Quando armas foram proibidas em Okinawa, camponeses adaptaram ferramentas agrícolas: nunchaku (mangual de arroz), tonfa (manivela de moinho), sai (tridente de pesca), bō (bastão) e kama (foice)." },
+  { titulo: "O Ikken Hissatsu", text: "一拳必殺 — 'Um golpe, uma morte'. Conceito filosófico que não incentiva violência, mas sim a busca pela técnica perfeita: cada golpe deve ser dado como se fosse o único." },
+  { titulo: "Zanshin — a mente que permanece", text: "残心 — Após executar uma técnica, o praticante deve manter a atenção plena, pronto para reagir. Zanshin é a diferença entre um golpe de karateca e um golpe de amador." },
+  { titulo: "O Karate nas Olimpíadas", text: "O karatê estreou nos Jogos de Tóquio 2020 (2021), mas foi removido de Paris 2024. A modalidade busca voltar em Los Angeles 2028, mostrando que a luta pelo reconhecimento olímpico continua." },
 ];
 
 export const PRECEITOS_FUNAKOSHI = [

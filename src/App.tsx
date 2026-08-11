@@ -9,6 +9,7 @@ import { Historia } from './routes/Historia'
 import Beneficios from './routes/Beneficios'
 import { Tecnicas } from './routes/Tecnicas'
 import { Curiosidades } from './routes/Curiosidades'
+import { Linhagem } from './routes/Linhagem'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -33,6 +34,7 @@ function App() {
           <Route path='/fundamentos' element={<Fundaments />} />
           <Route path='/beneficios' element={<Beneficios />} />
           <Route path='/tecnicas' element={<Tecnicas />} />
+          <Route path='/linhagem' element={<Linhagem />} />
           <Route path='/curiosidades' element={<Curiosidades />} />
           
           {/* Retrocompatibilidade com as rotas antigas */}

@@ -16,6 +16,7 @@ function Header() {
     if (cleaned === "historia") return "historia";
     if (cleaned === "beneficios") return "beneficios";
     if (cleaned === "tecnicas") return "tecnicas";
+    if (cleaned === "linhagem") return "linhagem";
     if (cleaned === "curiosidades") return "curiosidades";
     return "home";
   };
@@ -52,7 +53,7 @@ function Header() {
       <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#0D0D0D]/90 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <span className="font-jp-serif text-2xl text-jp-red group-hover:text-jp-gold transition-colors">空手</span>
+            <span className="font-jp-serif text-xl text-white bg-jp-red rounded-md px-2 py-1 group-hover:bg-[#9a0024] transition-colors">空手</span>
             <span className="hidden sm:block text-white tracking-widest text-xs uppercase">Shotokan-Ryū</span>
           </Link>
 

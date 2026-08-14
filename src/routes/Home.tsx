@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
-import { NAV, PRECEITOS_FUNAKOSHI } from "@/components/data";
+import { PRECEITOS_FUNAKOSHI } from "@/Data/data";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 const Home = () => {
@@ -67,7 +67,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="relative py-20 bg-seigaiha">
+      {/* <section className="relative py-20 bg-seigaiha">
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <Reveal>
             <div className="text-center mb-10">
@@ -91,7 +91,6 @@ const Home = () => {
                     {n.id === "fundamentos" && "Kihon, Kata e Kumite."}
                     {n.id === "beneficios" && "Corpo, mente, espírito."}
                     {n.id === "tecnicas" && "Socos, chutes, defesas e bases."}
-                    {n.id === "linhagem" && "Árvore genealógica dos mestres."}
                     {n.id === "curiosidades" && "Fatos e segredos do estilo."}
                   </div>
                   <span className="mt-auto text-[10px] text-jp-red tracking-widest uppercase flex items-center gap-1">
@@ -102,9 +101,8 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Quote */}
       <section className="relative py-24 bg-jp-ink text-white overflow-hidden">
         <div className="kanji-watermark" style={{ fontSize: 380, left: -30, top: -60 }}>道</div>
         <div className="max-w-4xl mx-auto px-5 lg:px-8 text-center relative">

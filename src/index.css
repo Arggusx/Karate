@@ -134,6 +134,17 @@ body {
     }
 }
 
+@theme {
+  --color-jp-red: #BC002D;
+  --color-jp-red-bright: #C41E3A;
+  --color-jp-black: #1A1A1A;
+  --color-jp-ink: #0D0D0D;
+  --color-jp-paper: #F5F1E8;
+  --color-jp-white: #FFFFFF;
+  --color-jp-gold: #D4AF37;
+  --color-jp-gray: #A0A0A0;
+}
+
 /* --- ESTILOS ADAPTADOS DO FIGMA LAYOUT --- */
 :root {
   --jp-red: #BC002D;
@@ -180,7 +191,13 @@ body {
 .text-jp-red { color: var(--jp-red); }
 .bg-jp-red { background-color: var(--jp-red); }
 .bg-jp-ink { background-color: var(--jp-ink); }
+.text-jp-ink { color: var(--jp-ink); }
+.bg-jp-paper { background-color: var(--jp-paper); }
+.text-jp-paper { color: var(--jp-paper); }
+.border-jp-paper { border-color: var(--jp-paper); }
 .text-jp-gold { color: var(--jp-gold); }
+.border-jp-gold { border-color: var(--jp-gold); }
+.bg-jp-gold { background-color: var(--jp-gold); }
 .border-jp-red { border-color: var(--jp-red); }
 
 /* Brush stroke text reveal */
@@ -230,6 +247,22 @@ body {
   animation: pageFadeIn 0.35s ease-out both;
 }
 
+/* Modal animations */
+@keyframes modalOverlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes modalContentIn {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-overlay-anim {
+  animation: modalOverlayFade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.modal-content-anim {
+  animation: modalContentIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* Card hover red glow */
 .card-elev {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -243,17 +276,6 @@ body {
 .sumi-divider {
   height: 16px;
   background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 16'><path d='M2 8 C 30 2, 60 14, 100 8 S 170 2, 198 8' stroke='%231A1A1A' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>") center/200px 16px no-repeat;
-}
-
-/* Scroll progress bar */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--jp-red), var(--jp-gold));
-  z-index: 60;
-  transition: width 0.1s linear;
 }
 
 /* Newsletter input override */

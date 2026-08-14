@@ -82,9 +82,8 @@ function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-5 lg:px-8 mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-3 text-xs text-white/40 relative">
-        <span>© {new Date().getFullYear()} Karate-Dō · Projeto educativo, sem fins lucrativos.</span>
-        <span className="font-jp-serif">心を磨け — Lapide o coração.</span>
+      <div className="max-w-7xl mx-auto px-5 lg:px-8 mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row gap-3 text-xs text-white/40 relative">
+        <span>© {new Date().getFullYear()} Karate-Dō. Todos os direitos reservados. Desenvolvido por Douglas/Arggusx</span>
       </div>
     </footer>
   );

@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { NAV, type PageId } from "./data";
+import { NAV, type PageId } from "@/Data/data";
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
   const location = useLocation();
 
-  // Determina qual é o PageId com base na rota atual do react-router-dom
   const getPageIdFromPath = (path: string): PageId => {
     if (path === "/") return "home";
     const cleaned = path.replace("/", "");
@@ -16,7 +14,6 @@ function Header() {
     if (cleaned === "historia") return "historia";
     if (cleaned === "beneficios") return "beneficios";
     if (cleaned === "tecnicas") return "tecnicas";
-    if (cleaned === "linhagem") return "linhagem";
     if (cleaned === "curiosidades") return "curiosidades";
     return "home";
   };
@@ -27,34 +24,17 @@ function Header() {
     setOpen(false);
   }, [location.pathname]);
 
-  // Calcula o progresso do scroll de forma autônoma
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const scrolled = (window.scrollY / totalHeight) * 100;
-        setProgress(scrolled);
-      } else {
-        setProgress(0);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const getPathFromPageId = (id: PageId) => {
     return id === "home" ? "/" : `/${id}`;
   };
 
   return (
     <>
-      <div className="scroll-progress" style={{ width: `${progress}%` }} />
       <nav className="sticky top-0 z-50 backdrop-blur-md bg-[#0D0D0D]/90 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-3 group">
-            <span className="font-jp-serif text-xl text-white bg-jp-red rounded-md px-2 py-1 group-hover:bg-[#9a0024] transition-colors">空手</span>
-            <span className="hidden sm:block text-white tracking-widest text-xs uppercase">Shotokan-Ryū</span>
+            <span className="font-jp-serif text-xl text-white bg-jp-red rounded-full px-2.5 py-1.5 group-hover:bg-[#9a0024] transition-colors">道</span>
+            <span className="sm:block text-white tracking-widest text-xs uppercase">Shotokan-Ryū</span>
           </Link>
 
           <ul className="hidden lg:flex items-center gap-1">
@@ -66,7 +46,6 @@ function Header() {
                     current === n.id ? "text-jp-gold" : "text-white/80 hover:text-white"
                   }`}
                 >
-                  <span className="font-jp-serif text-base">{n.kanji}</span>
                   <span>{n.label}</span>
                   {current === n.id && (
                     <span className="absolute -bottom-1 left-3 right-3 h-[2px] bg-jp-red" />

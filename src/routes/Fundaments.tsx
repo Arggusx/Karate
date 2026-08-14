@@ -1,18 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { PILARES, DICIONARIO, KATAS_SHOTOKAN, DOJO_KUN } from "@/components/data";
-
-const GRADUACOES = [
-  { faixa: "Branca", jp: "白帯", txt: "Iniciante. A mente vazia, pronta para receber." },
-  { faixa: "Amarela", jp: "黄帯", txt: "Primeiros movimentos firmes — o sol que nasce." },
-  { faixa: "Vermelha", jp: "赤帯", txt: "Energia e ímpeto da juventude técnica." },
-  { faixa: "Laranja", jp: "橙帯", txt: "Transição. O calor do fogo interno." },
-  { faixa: "Verde", jp: "緑帯", txt: "Crescimento — como o broto que vira árvore." },
-  { faixa: "Roxa", jp: "紫帯", txt: "Profundidade. Estudo de katas intermediários." },
-  { faixa: "Marrom", jp: "茶帯", txt: "Maturidade técnica. Pronto para o Shodan." },
-  { faixa: "Preta", jp: "黒帯", txt: "Não é o fim — é o verdadeiro começo. Shodan = 1º dan." },
-];
+import { DICIONARIO, DOJO_KUN, GRADUACOES, PILARES, PRINCIPIOS_TECNICOS } from "@/Data/data";
 
 export function Fundaments() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
@@ -157,54 +146,12 @@ export function Fundaments() {
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[
-              { k: "決め", n: "Kime", t: "A contração total e instantânea no impacto. Sem kime, o golpe é vazio." },
-              { k: "気合", n: "Kiai", t: "Grito de espírito. Concentra energia, intimida, sincroniza respiração e corpo." },
-              { k: "残心", n: "Zanshin", t: "Mente alerta após o ataque. Nunca relaxe antes que o adversário esteja realmente neutralizado." },
-              { k: "間合", n: "Maai", t: "Distância de combate. Ler maai é metade do karatê — atacar fora dela é morrer." },
-              { k: "拍子", n: "Hyoshi", t: "Ritmo. Quebrar o ritmo do oponente é mais valioso que mil socos." },
-              { k: "腰", n: "Koshi", t: "Quadril. Toda potência verdadeira nasce da rotação do quadril, não do braço." },
-              { k: "引手", n: "Hikite", t: "A mão que recua. Tão importante quanto o soco — gera contra-rotação e potência." },
-              { k: "初心", n: "Shoshin", t: "Mente de iniciante. Mesmo o mestre treina como se aprendesse pela primeira vez." },
-              { k: "無心", n: "Mushin", t: "Mente sem mente. Agir sem pensar, fluido como a água." },
-            ].map((p, i) => (
+            {PRINCIPIOS_TECNICOS.map((p, i) => (
               <Reveal key={p.n} delay={i * 60}>
                 <div className="card-elev bg-jp-paper border border-black/5 p-6 h-full">
                   <div className="font-jp-serif text-4xl text-jp-red">{p.k}</div>
                   <div className="font-jp-serif text-lg mt-2">{p.n}</div>
                   <p className="text-sm text-black/70 mt-2 leading-relaxed">{p.t}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Katas */}
-      <section className="py-20 bg-jp-ink text-white relative overflow-hidden">
-        <div className="kanji-watermark" style={{ fontSize: 480, right: -80, top: -80, color: "rgba(212,175,55,0.06)" }}>型</div>
-        <div className="max-w-6xl mx-auto px-5 lg:px-8 relative">
-          <Reveal>
-            <div className="text-jp-red text-xs tracking-widest uppercase">Kata · 型</div>
-            <h2 className="font-jp-serif text-3xl mt-2">Os katas do Shotokan</h2>
-            <p className="text-white/70 mt-3 max-w-2xl">
-              O Shotokan possui <strong>26 katas oficiais</strong>. Cada kata é uma luta imaginária
-              contra múltiplos adversários — uma coreografia que esconde aplicações reais (bunkai).
-              Estudar kata é estudar a própria história do estilo.
-            </p>
-            <div className="sumi-divider max-w-xs mt-4 opacity-60" style={{ filter: "invert(1)" }} />
-          </Reveal>
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {KATAS_SHOTOKAN.map((k, i) => (
-              <Reveal key={k.nome} delay={i * 40}>
-                <div className="card-elev bg-white/5 border border-white/10 backdrop-blur p-5 h-full">
-                  <div className="flex items-baseline justify-between">
-                    <div className="font-jp-serif text-jp-gold text-2xl">{k.kanji}</div>
-                    <div className="text-[10px] tracking-widest uppercase text-jp-red bg-jp-red/10 px-2 py-0.5">{k.nivel}</div>
-                  </div>
-                  <div className="font-jp-serif text-xl mt-1">{k.nome}</div>
-                  <div className="text-xs text-white/40 mt-1">{k.mov} movimentos</div>
-                  <p className="text-sm text-white/70 mt-3 leading-relaxed">{k.text}</p>
                 </div>
               </Reveal>
             ))}

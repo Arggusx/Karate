@@ -1,11 +1,5 @@
 import { Reveal } from "@/components/Reveal";
-import { BENEFICIOS } from "@/components/data";
-
-const DEPOIMENTOS = [
-  { nome: "Ana, 34", antes: "Sedentária, ansiosa.", depois: "Faixa azul, 3x/semana. Dorme melhor, foca mais." },
-  { nome: "Hiroshi, 58", antes: "Estresse no trabalho.", depois: "Encontrou o silêncio no kata. Voltou a sorrir." },
-  { nome: "Lucas, 9", antes: "Tímido na escola.", depois: "Mais confiante e respeitoso com colegas." },
-];
+import { BENEFICIOS, DEPOIMENTOS } from "@/Data/data";
 
 export function Beneficios() {
   return (

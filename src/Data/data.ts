@@ -1,4 +1,4 @@
-export type PageId = "home" | "historia" | "fundamentos" | "beneficios" | "tecnicas" | "linhagem" | "curiosidades";
+export type PageId = "home" | "historia" | "fundamentos" | "beneficios" | "tecnicas" | "curiosidades";
 
 export const NAV: { id: PageId; label: string; kanji: string }[] = [
   { id: "home", label: "Home", kanji: "家" },
@@ -6,7 +6,6 @@ export const NAV: { id: PageId; label: string; kanji: string }[] = [
   { id: "fundamentos", label: "Fundamentos", kanji: "基本" },
   { id: "beneficios", label: "Benefícios", kanji: "利益" },
   { id: "tecnicas", label: "Técnicas", kanji: "技術" },
-  { id: "linhagem", label: "Linhagem", kanji: "系譜" },
   { id: "curiosidades", label: "Curiosidades", kanji: "雑学" },
 ];
 
@@ -141,20 +140,481 @@ export const PRECEITOS_NIJU_KUN = [
   "10. Aplique o karatê a tudo. Aí está sua beleza.",
 ];
 
-export const KATAS_SHOTOKAN = [
-  { nome: "Heian Shodan", kanji: "平安初段", nivel: "Kyu", mov: 21, text: "Primeiro kata. 'Paz mental, primeiro nível'. Introduz Zenkutsu-dachi e bloqueios fundamentais." },
-  { nome: "Heian Nidan", kanji: "平安二段", nivel: "Kyu", mov: 26, text: "Apresenta defesas duplas e chutes laterais. Ritmo mais variado." },
-  { nome: "Heian Sandan", kanji: "平安三段", nivel: "Kyu", mov: 20, text: "Trabalha cotovelos e técnicas de contato curto." },
-  { nome: "Heian Yondan", kanji: "平安四段", nivel: "Kyu", mov: 27, text: "Combina chutes altos e bloqueios duplos em ritmo dinâmico." },
-  { nome: "Heian Godan", kanji: "平安五段", nivel: "Kyu", mov: 23, text: "Inclui o famoso salto (tobi-komi) — preparação para katas avançados." },
-  { nome: "Tekki Shodan", kanji: "鉄騎初段", nivel: "Kyu/Dan", mov: 29, text: "'Cavaleiro de ferro'. Executado totalmente em Kiba-dachi, treina a base lateral." },
-  { nome: "Bassai-Dai", kanji: "披塞大", nivel: "Dan", mov: 42, text: "'Tomar a fortaleza'. Energético, simboliza o avanço determinado." },
-  { nome: "Kanku-Dai", kanji: "観空大", nivel: "Dan", mov: 65, text: "'Olhar o céu'. O kata preferido de Funakoshi. Considerado uma síntese do Shotokan." },
-  { nome: "Empi", kanji: "燕飛", nivel: "Dan", mov: 37, text: "'Voo da andorinha'. Movimentos rápidos com altura variável." },
-  { nome: "Jion", kanji: "慈恩", nivel: "Dan", mov: 47, text: "Nome de um templo budista. Kata de poder, simbólico no exame de Shodan." },
-  { nome: "Hangetsu", kanji: "半月", nivel: "Dan", mov: 41, text: "'Meia-lua'. Único kata com respiração sonora — herança do Goju." },
-  { nome: "Gankaku", kanji: "岩鶴", nivel: "Dan", mov: 42, text: "'Garça na rocha'. Equilíbrio em uma só perna por longos instantes." },
-  { nome: "Unsu", kanji: "雲手", nivel: "Avançado", mov: 48, text: "'Mãos na nuvem'. Inclui salto giratório de 360°. Um dos katas mais difíceis do estilo." },
+export interface DecomposicaoTermo {
+  termo: string;
+  significado: string;
+}
+
+export interface KataItem {
+  nome: string;
+  kanji: string;
+  nivel: string;
+  mov: number;
+  categoria: string;
+  significado: string;
+  decomposicao: DecomposicaoTermo[];
+  text: string;
+  videoUrl?: string;
+  enbusenUrl?: string;
+  imagemUrl?: string;
+}
+
+export const KATAS_SHOTOKAN: KataItem[] = [
+  {
+    nome: "Heian Shodan",
+    kanji: "平安初段",
+    nivel: "Kyu (8º Kyu)",
+    mov: 21,
+    categoria: "Kihon Kata (Básico)",
+    significado: "Paz e tranquilidade — primeiro nível.",
+    decomposicao: [
+      { termo: "Heian", significado: "Paz e tranquilidade" },
+      { termo: "Shodan", significado: "Primeiro nível" }
+    ],
+    text: "Primeiro kata da série Heian. Introduz a base Zenkutsu-dachi (base frontal longa), bloqueios Gedan-barai e Age-uke, e ataques Oi-zuki com foco na estabilidade e alinhamento do quadril.",
+    videoUrl: "https://www.youtube.com/embed/q1Rg8rUpjjw?si=OmcOqZQcb9AOxxOO",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Heian Nidan",
+    kanji: "平安二段",
+    nivel: "Kyu (7º Kyu)",
+    mov: 26,
+    categoria: "Kihon Kata (Básico)",
+    significado: "Paz e tranquilidade — segundo nível.",
+    decomposicao: [
+      { termo: "Heian", significado: "Paz e tranquilidade" },
+      { termo: "Nidan", significado: "Segundo nível" }
+    ],
+    text: "Apresenta a base recuada Kokutsu-dachi, o bloqueio Shuto-uke (mão em espada) e chutes combinados Yoko-geri e Mae-geri com defesas duplas em ritmo variado.",
+    videoUrl: "https://www.youtube.com/embed/rgs1ysn0R-0?si=7TkRmTo9oLO9nVZQ",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Heian Sandan",
+    kanji: "平安三段",
+    nivel: "Kyu (6º Kyu)",
+    mov: 20,
+    categoria: "Kihon Kata (Básico)",
+    significado: "Paz e tranquilidade — terceiro nível.",
+    decomposicao: [
+      { termo: "Heian", significado: "Paz e tranquilidade" },
+      { termo: "Sandan", significado: "Terceiro nível" }
+    ],
+    text: "Introduz a postura Kiba-dachi (base do cavaleiro), giros rápidos de 180°, defesas com o antebraço (Uchi-uke / Morote-uke), cotoveladas (Empi-uchi) e esquivas a curta distância.",
+    videoUrl: "https://www.youtube.com/embed/1MrRmimBJoA?si=mmgN8na94_1ywXPG",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Heian Yondan",
+    kanji: "平安四段",
+    nivel: "Kyu (5º Kyu)",
+    mov: 27,
+    categoria: "Kihon Kata (Básico)",
+    significado: "Paz e tranquilidade — quarto nível.",
+    decomposicao: [
+      { termo: "Heian", significado: "Paz e tranquilidade" },
+      { termo: "Yondan", significado: "Quarto nível" }
+    ],
+    text: "Kata dinâmico com alternância de ritmo e expansão. Apresenta bloqueios duplos Morote-uke e Juji-uke, chutes altos frontais e laterais, e cotoveladas combinadas com joelhadas (Hiza-geri).",
+    videoUrl: "https://www.youtube.com/embed/k72E1u962Qg?si=ofEwfitGWoxeOi0X",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Heian Godan",
+    kanji: "平安五段",
+    nivel: "Kyu (4º Kyu)",
+    mov: 23,
+    categoria: "Kihon Kata (Básico)",
+    significado: "Paz e tranquilidade — quinto nível.",
+    decomposicao: [
+      { termo: "Heian", significado: "Paz e tranquilidade" },
+      { termo: "Godan", significado: "Quinto nível" }
+    ],
+    text: "Síntese dos katas Heian. Trabalha defesas em níveis variados, contra-ataques simultâneos de soco e cotovelo, e o emblemático salto com giro (Tobi-komi) aterrissando em Kosa-dachi.",
+    videoUrl: "https://www.youtube.com/embed/JA0Ym97vjLg?si=K7OP2XvEVRsUCJhF",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Tekki Shodan",
+    kanji: "鉄騎初段",
+    nivel: "Kyu / Dan (3º Kyu)",
+    mov: 29,
+    categoria: "Naihanchi (Base Lateral)",
+    significado: "Cavaleiro de ferro — primeiro nível.",
+    decomposicao: [
+      { termo: "Tekki", significado: "Cavaleiro de ferro" },
+      { termo: "Shodan", significado: "Primeiro nível" }
+    ],
+    text: "Executado inteiramente em Kiba-dachi ao longo de uma linha reta horizontal única. Desenvolve extrema solidez de base, força nos quadris e técnicas de combate corpo a corpo.",
+    videoUrl: "",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Tekki Nidan",
+    kanji: "鉄騎二段",
+    nivel: "Dan (2º Dan)",
+    mov: 24,
+    categoria: "Naihanchi (Base Lateral)",
+    significado: "Cavaleiro de ferro — segundo nível.",
+    decomposicao: [
+      { termo: "Tekki", significado: "Cavaleiro de ferro" },
+      { termo: "Nidan", significado: "Segundo nível" }
+    ],
+    text: "Segunda forma da série Tekki. Enfatiza defesas de gancho (Kagi-zuki), agarramentos e golpes curtos laterais sem perder o alinhamento da base Kiba-dachi.",
+    videoUrl: "",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Tekki Sandan",
+    kanji: "鉄騎三段",
+    nivel: "Dan (3º Dan)",
+    mov: 36,
+    categoria: "Naihanchi (Base Lateral)",
+    significado: "Cavaleiro de ferro — terceiro nível.",
+    decomposicao: [
+      { termo: "Tekki", significado: "Cavaleiro de ferro" },
+      { termo: "Sandan", significado: "Terceiro nível" }
+    ],
+    text: "A variação mais rápida e complexa de Tekki. Requer coordenação rítmica ágil de braços e rotação precisa do tronco mantendo a postura firme.",
+    videoUrl: "",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Bassai-Dai",
+    kanji: "披塞大",
+    nivel: "Dan (1º Dan - Shodan)",
+    mov: 42,
+    categoria: "Sentei Kata (Obrigatório)",
+    significado: "Penetrar ou romper uma fortaleza — versão maior.",
+    decomposicao: [
+      { termo: "Bassai", significado: "Romper a fortaleza" },
+      { termo: "Dai", significado: "Versão maior" }
+    ],
+    text: "Kata enérgico e imponente que simboliza transformar desvantagem em vantagem com determinação inabalável. Alterna ataques pesados com bloqueios precisos.",
+    videoUrl: "https://www.youtube.com/embed/Qpt3W7Y06Kg?si=5pYA7damMFzW00Dx",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Bassai-Sho",
+    kanji: "披塞小",
+    nivel: "Dan (3º Dan)",
+    mov: 27,
+    categoria: "Tokui Kata (Avançado)",
+    significado: "Penetrar ou romper uma fortaleza — versão menor.",
+    decomposicao: [
+      { termo: "Bassai", significado: "Romper a fortaleza" },
+      { termo: "Sho", significado: "Versão menor" }
+    ],
+    text: "Variação avançada com defesas sutis de mão aberta, desvios contra bastão (Bo) e contra-ataques precisos que exigem alta sensibilidade tátil.",
+    videoUrl: "https://www.youtube.com/embed/zpnA13Vg1lY?si=0MItYepXnRt0Hhcv",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Kanku-Dai",
+    kanji: "観空大",
+    nivel: "Dan (1º / 2º Dan)",
+    mov: 65,
+    categoria: "Sentei Kata (Obrigatório)",
+    significado: "Observar o céu / Contemplar o vazio — versão maior.",
+    decomposicao: [
+      { termo: "Kanku", significado: "Observar o céu e o vazio" },
+      { termo: "Dai", significado: "Versão maior" }
+    ],
+    text: "O kata mais longo e clássico do Shotokan, predileto de Funakoshi. Inicia com a elevação das mãos formando um triângulo contra o céu e engloba a base de quase todos os Heian.",
+    videoUrl: "https://www.youtube.com/embed/5Hgi2vi9EbA?si=YIvoV3z4nckosn0b",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Kanku-Sho",
+    kanji: "観空小",
+    nivel: "Dan (4º Dan)",
+    mov: 47,
+    categoria: "Tokui Kata (Avançado)",
+    significado: "Observar o céu / Contemplar o vazio — versão menor.",
+    decomposicao: [
+      { termo: "Kanku", significado: "Observar o céu e o vazio" },
+      { termo: "Sho", significado: "Versão menor" }
+    ],
+    text: "Versão compacta e rápida de Kanku, famosa por seus saltos acrobáticos explosivos e combinações de contra-ataque de alta velocidade.",
+    videoUrl: "https://www.youtube.com/embed/veaayoYQ9D4?si=5h9leVsAiKcpWiRG",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Empi",
+    kanji: "燕飛",
+    nivel: "Dan (1º / 2º Dan)",
+    mov: 37,
+    categoria: "Sentei Kata (Obrigatório)",
+    significado: "Voo da andorinha.",
+    decomposicao: [
+      { termo: "En", significado: "Andorinha" },
+      { termo: "Pi", significado: "Voo ágil" }
+    ],
+    text: "Inspirado na agilidade rápida e mudanças repentinas de trajetória de uma andorinha em voo. Apresenta variações de altura corporal, puxões e um salto rápido.",
+    videoUrl: "https://www.youtube.com/embed/IInNlHZQUrE?si=iDRDyhPcI4kp9i6a",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Jion",
+    kanji: "慈恩",
+    nivel: "Dan (1º Dan - Shodan)",
+    mov: 47,
+    categoria: "Sentei Kata (Obrigatório)",
+    significado: "Amor e benevolência — nome de um templo budista clássico.",
+    decomposicao: [
+      { termo: "Ji", significado: "Amor e compaixão" },
+      { termo: "On", significado: "Benevolência e gratidão" }
+    ],
+    text: "Kata nobre e harmonioso de origem Tomari-te. Inicia com a saudação tradicional budista (mão aberta sobre o punho) e apresenta movimentos diretos e pesados.",
+    videoUrl: "https://www.youtube.com/embed/KErsdtTwqM8?si=VBIq8lrh3RXTfhnV",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Jitte",
+    kanji: "十手",
+    nivel: "Dan (2º / 3º Dan)",
+    mov: 24,
+    categoria: "Tokui Kata (Defesa de Bastão)",
+    significado: "Dez mãos — eficácia equivalente a dez oponentes.",
+    decomposicao: [
+      { termo: "Jit (Jū)", significado: "Dez" },
+      { termo: "Te", significado: "Mãos" }
+    ],
+    text: "Kata focado em desarmes e defesas robustas contra ataques de bastão longo (Bo-dori), com bloqueios em gancho e posturas firmes.",
+    videoUrl: "https://www.youtube.com/embed/IWZOQd6dvww?si=PqjnNvsoSNQHEz7B",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Jiin",
+    kanji: "慈陰",
+    nivel: "Dan (3º Dan)",
+    mov: 35,
+    categoria: "Tokui Kata (Avançado)",
+    significado: "Sombra de benevolência / Amor do templo.",
+    decomposicao: [
+      { termo: "Ji", significado: "Amor e misericórdia" },
+      { termo: "In", significado: "Sombra ou retiro espiritual" }
+    ],
+    text: "Completa a trilogia Jion-Jitte-Jiin. Destaca transições calmas e estáveis em Kiba-dachi e Zenkutsu-dachi com controle respiratório profundo.",
+    videoUrl: "https://www.youtube.com/embed/b8RcGoE7XiI?si=LVmJageVxi3zvOQU",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Hangetsu",
+    kanji: "半月",
+    nivel: "Dan (2º Dan)",
+    mov: 41,
+    categoria: "Tokui Kata (Naha-te / Respiração)",
+    significado: "Meia-lua.",
+    decomposicao: [
+      { termo: "Han", significado: "Metade / Meia" },
+      { termo: "Getsu", significado: "Lua" }
+    ],
+    text: "Herança da vertente Shorei/Naha-te. Destaca a base Hangetsu-dachi com passos circulares e contração isométrica profunda acompanhada de respiração sonora (Ibuki).",
+    videoUrl: "",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Gankaku",
+    kanji: "岩鶴",
+    nivel: "Dan (2º / 3º Dan)",
+    mov: 42,
+    categoria: "Tokui Kata (Equilíbrio)",
+    significado: "Garça sobre a rocha.",
+    decomposicao: [
+      { termo: "Gan", significado: "Rocha ou penhasco" },
+      { termo: "Kaku", significado: "Garça" }
+    ],
+    text: "Caracterizado pela postura Tsuruashi-dachi (equilíbrio unilateral imitando a garça no rochedo) seguido de chute Yoko-geri e contragolpe fulminante de Uraken.",
+    videoUrl: "https://www.youtube.com/embed/OJi3lwnx0jI?si=3b76maTgCr1h0PYK",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Sochin",
+    kanji: "壯鎭",
+    nivel: "Dan (2º / 3º Dan)",
+    mov: 41,
+    categoria: "Tokui Kata (Força e Enraizamento)",
+    significado: "Grande tranquilidade / Força e calma inabalável.",
+    decomposicao: [
+      { termo: "So", significado: "Grande / Vigoroso" },
+      { termo: "Chin", significado: "Tranquilidade e calma" }
+    ],
+    text: "Executado predominantemente na base Sochin-dachi (Fudo-dachi), transmitindo o enraizamento de uma rocha imóvel com explosões musculares e defesas circulares.",
+    videoUrl: "https://www.youtube.com/embed/KqmlVtZZuxY?si=4L84TF6YlHULQ5YJ",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Nijushiho",
+    kanji: "二十四歩",
+    nivel: "Dan (3º / 4º Dan)",
+    mov: 34,
+    categoria: "Tokui Kata (Fluidez / Ondas)",
+    significado: "Vinte e quatro passos.",
+    decomposicao: [
+      { termo: "Nijūshi", significado: "Vinte e quatro" },
+      { termo: "Ho", significado: "Passos" }
+    ],
+    text: "Possui dinâmica fluida que evoca o movimento contínuo das ondas do mar, com bloqueios circulares suaves e penetrantes ataques com a palma da mão.",
+    videoUrl: "https://www.youtube.com/embed/ZE8EqPvwruE?si=n2_cq_NPjV-1Mpcx",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Chinte",
+    kanji: "珍手",
+    nivel: "Dan (3º / 4º Dan)",
+    mov: 32,
+    categoria: "Tokui Kata (Mãos Raras)",
+    significado: "Mãos raras / Mãos incomuns.",
+    decomposicao: [
+      { termo: "Chin", significado: "Raro ou incomum" },
+      { termo: "Te", significado: "Mãos" }
+    ],
+    text: "Contém técnicas circulares com as pontas dos dedos dirigidas a pontos vitais (Nihon-nukite) e termina com os três saltos rítmicos para retorno ao ponto inicial do Enbusen.",
+    videoUrl: "https://www.youtube.com/embed/RgwDv8MChWg?si=FmLnBgqLsKij7Elj",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Unsu",
+    kanji: "雲手",
+    nivel: "Avançado (4º Dan / Mestre)",
+    mov: 48,
+    categoria: "Tokui Kata (Competição / Mestre)",
+    significado: "Mãos nas nuvens.",
+    decomposicao: [
+      { termo: "Un", significado: "Nuvem" },
+      { termo: "Su", significado: "Mãos" }
+    ],
+    text: "Considerado um dos katas mais complexos e atléticos do Karatê. Inclui defesa do solo com chute Mikazuki-geri e o espetacular salto giratório de 360° no ar.",
+    videoUrl: "https://www.youtube.com/embed/MjVKvHf_Ny0?si=TzIKaHXgjdOwLovK",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Meikyo",
+    kanji: "明鏡",
+    nivel: "Dan (3º / 4º Dan)",
+    mov: 33,
+    categoria: "Tokui Kata (Espelho Limpo)",
+    significado: "Espelho limpo / Espelho polido.",
+    decomposicao: [
+      { termo: "Mei", significado: "Límpido e claro" },
+      { termo: "Kyo", significado: "Espelho" }
+    ],
+    text: "Expressa a serenidade mental de um espelho sem reflexos distorcidos. Contém bloqueios triangulares (Sankaku-uke) e saltos com troca rápida de base.",
+    videoUrl: "https://www.youtube.com/embed/HbX9X3JEI1E?si=IUnTW8UKP1s3hn53",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Wankan",
+    kanji: "王冠",
+    nivel: "Dan (4º Dan / Mestre)",
+    mov: 24,
+    categoria: "Tokui Kata (Coroa do Rei)",
+    significado: "Coroa do rei.",
+    decomposicao: [
+      { termo: "Wan", significado: "Rei" },
+      { termo: "Kan", significado: "Coroa" }
+    ],
+    text: "O kata mais curto do Shotokan com um único Kiai no final. Apresenta agarramentos e desequilíbrios executados com nobreza e elegância rítmica.",
+    videoUrl: "https://www.youtube.com/embed/DzFP2UilMtI?si=td3g8MVHyovJN9bL",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Gojushiho-Dai",
+    kanji: "五十四歩大",
+    nivel: "Dan (4º / 5º Dan)",
+    mov: 67,
+    categoria: "Tokui Kata (54 Passos Maior)",
+    significado: "Cinquenta e quatro passos — versão maior.",
+    decomposicao: [
+      { termo: "Gojūshi-ho", significado: "54 passos" },
+      { termo: "Dai", significado: "Versão maior" }
+    ],
+    text: "Kata extenso com raízes antigas no estilo da Fênix, utilizando bicos de mão (Washide) e golpes de lança (Nukite) em ritmo constante e cadenciado.",
+    videoUrl: "https://www.youtube.com/embed/qVGcqVEBRRs?si=cc2n0Mi_p6nBgBLD",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Gojushiho-Sho",
+    kanji: "五十四歩小",
+    nivel: "Dan (4º / 5º Dan)",
+    mov: 65,
+    categoria: "Tokui Kata (54 Passos Menor)",
+    significado: "Cinquenta e quatro passos — versão menor.",
+    decomposicao: [
+      { termo: "Gojūshi-ho", significado: "54 passos" },
+      { termo: "Sho", significado: "Versão menor" }
+    ],
+    text: "Variação refinada e de alta precisão técnica com ataques de mão aberta a curta distância, muito consagrada em finais de campeonatos mundiais.",
+    videoUrl: "https://www.youtube.com/embed/c2qiJNrCYGw?si=nC4ozrMCFna66xkK",
+    enbusenUrl: "",
+    imagemUrl: ""
+  },
+  {
+    nome: "Taikyoku Shodan",
+    kanji: "太極初段",
+    nivel: "Iniciante (Básico)",
+    mov: 20,
+    categoria: "Kihon Kata (Iniciante)",
+    significado: "Grande causa primordial — primeiro nível.",
+    decomposicao: [
+      { termo: "Taikyoku", significado: "Grande causa primordial / Início" },
+      { termo: "Shodan", significado: "Primeiro nível" }
+    ],
+    text: "Forma introdutória simplificada criada por Funakoshi para o aprendizado fundamental do traçado do Enbusen em 'I', Zenkutsu-dachi e bloqueio Gedan-barai.",
+    videoUrl: "https://www.youtube.com/embed/jH6bv4GDpp0?si=UCRzd_uzwV0D4Kv-",
+    enbusenUrl: "",
+    imagemUrl: ""
+  }
+];
+
+export const GRADUACOES = [
+  { faixa: "Branca", jp: "白帯", txt: "Iniciante. A mente vazia, pronta para receber." },
+  { faixa: "Amarela", jp: "黄帯", txt: "Primeiros movimentos firmes — o sol que nasce." },
+  { faixa: "Vermelha", jp: "赤帯", txt: "Energia e ímpeto da juventude técnica." },
+  { faixa: "Laranja", jp: "橙帯", txt: "Transição. O calor do fogo interno." },
+  { faixa: "Verde", jp: "緑帯", txt: "Crescimento — como o broto que vira árvore." },
+  { faixa: "Roxa", jp: "紫帯", txt: "Profundidade. Estudo de katas intermediários." },
+  { faixa: "Marrom", jp: "茶帯", txt: "Maturidade técnica. Pronto para o Shodan." },
+  { faixa: "Preta", jp: "黒帯", txt: "Não é o fim — é o verdadeiro começo. Shodan = 1º dan." },
+];
+
+export const PRINCIPIOS_TECNICOS = [
+  { k: "決め", n: "Kime", t: "A contração total e instantânea no impacto. Sem kime, o golpe é vazio." },
+  { k: "気合", n: "Kiai", t: "Grito de espírito. Concentra energia, intimida, sincroniza respiração e corpo." },
+  { k: "残心", n: "Zanshin", t: "Mente alerta após o ataque. Nunca relaxe antes que o adversário esteja realmente neutralizado." },
+  { k: "間合", n: "Maai", t: "Distância de combate. Ler maai é metade do karatê — atacar fora dela é morrer." },
+  { k: "拍子", n: "Hyoshi", t: "Ritmo. Quebrar o ritmo do oponente é mais valioso que mil socos." },
+  { k: "腰", n: "Koshi", t: "Quadril. Toda potência verdadeira nasce da rotação do quadril, não do braço." },
+  { k: "引手", n: "Hikite", t: "A mão que recua. Tão importante quanto o soco — gera contra-rotação e potência." },
+  { k: "初心", n: "Shoshin", t: "Mente de iniciante. Mesmo o mestre treina como se aprendesse pela primeira vez." },
+  { k: "無心", n: "Mushin", t: "Mente sem mente. Agir sem pensar, fluido como a água." },
 ];
 
 export const PILARES = [
@@ -179,6 +639,20 @@ export const BENEFICIOS = [
   { kanji: "柔", titulo: "Flexibilidade", text: "Chutes altos e bases profundas ampliam mobilidade articular." },
   { kanji: "集", titulo: "Foco", text: "Cada técnica exige presença total — kime — no instante." },
   { kanji: "敬", titulo: "Respeito", text: "Etiqueta do dojo cultiva respeito por mestre, colega e adversário." },
+];
+
+export const DEPOIMENTOS = [
+  { nome: "Ana, 34", antes: "Sedentária, ansiosa.", depois: "Faixa azul, 3x/semana. Dorme melhor, foca mais." },
+  { nome: "Hiroshi, 58", antes: "Estresse no trabalho.", depois: "Encontrou o silêncio no kata. Voltou a sorrir." },
+  { nome: "Lucas, 9", antes: "Tímido na escola.", depois: "Mais confiante e respeitoso com colegas." },
+];
+
+export const CATEGORIAS_TECNICAS = [
+  { id: "Socos", label: "Socos e Golpes (Tsuki / Uchi)", kanji: "突 · 打" },
+  { id: "Chutes", label: "Chutes (Keri)", kanji: "蹴" },
+  { id: "Defesas", label: "Defesas (Uke)", kanji: "受" },
+  { id: "Bases", label: "Bases e Posturas (Dachi)", kanji: "立" },
+  { id: "Katas", label: "Katas (型)", kanji: "型" },
 ];
 
 export const TECNICAS = [

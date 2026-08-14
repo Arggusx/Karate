@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { TIMELINE, MESTRES, PRECEITOS_NIJU_KUN } from "@/components/data";
+import { TIMELINE, MESTRES, PRECEITOS_NIJU_KUN } from "@/Data/data";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
+import { LinhagemContent } from "@/components/LinhagemContent";
 
 export function Historia() {
   const [openTl, setOpenTl] = useState<number | null>(null);
@@ -194,6 +195,8 @@ export function Historia() {
           </Reveal>
         </div>
       </section>
+
+      <LinhagemContent />
 
       {/* Niju Kun */}
       <section className="py-24 bg-jp-paper">

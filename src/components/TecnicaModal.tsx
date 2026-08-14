@@ -11,17 +11,7 @@ import {
   Shield,
   Layers
 } from "lucide-react";
-
-export interface TecnicaItem {
-  nome: string;
-  kanji: string;
-  pt: string;
-  cat: string;
-  tipo: string;
-  desc: string;
-  url_video?: string;
-  url_imagem?: string;
-}
+import type { TecnicaItem } from "@/Data/data";
 
 interface TecnicaModalProps {
   tecnica: TecnicaItem;

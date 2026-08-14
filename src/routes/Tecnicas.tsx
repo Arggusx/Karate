@@ -2,8 +2,8 @@ import { useState, useMemo } from "react";
 import { Search, X, Play, Eye, Compass, Shield, Target, Award, Footprints } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { KataModal } from "@/components/KataModal";
-import { TecnicaModal, type TecnicaItem } from "@/components/TecnicaModal";
-import { CATEGORIAS_TECNICAS, TECNICAS, KATAS_SHOTOKAN, type KataItem } from "@/Data/data";
+import { TecnicaModal } from "@/components/TecnicaModal";
+import { CATEGORIAS_TECNICAS, TECNICAS, KATAS_SHOTOKAN, type KataItem, type TecnicaItem } from "@/Data/data";
 
 interface CategoryBlockProps {
   catId: string;

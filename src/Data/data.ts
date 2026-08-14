@@ -655,7 +655,18 @@ export const CATEGORIAS_TECNICAS = [
   { id: "Katas", label: "Katas (型)", kanji: "型" },
 ];
 
-export const TECNICAS = [
+export interface TecnicaItem {
+  tipo: string;
+  cat: string;
+  nome: string;
+  kanji: string;
+  pt: string;
+  desc: string;
+  url_video?: string;
+  url_imagem?: string;
+}
+
+export const TECNICAS: TecnicaItem[] = [
   // Tsuki (Socos)
   { tipo: "Tsuki", cat: "Socos", nome: "Choku-Zuki", kanji: "直突き", pt: "Soco direto (parado)", desc: "Soco reto executado a partir de Heiko ou Kiba-dachi, sem deslocamento. Fundamento absoluto." },
   { tipo: "Tsuki", cat: "Socos", nome: "Oi-Zuki", kanji: "追い突き", pt: "Soco com avanço", desc: "Soco com a mão do mesmo lado da perna que avança (mesmo lado). Técnica símbolo do Shotokan." },

@@ -1,20 +1,20 @@
-import { useState, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 import {
   ArrowLeft,
   ArrowRight,
-  Video,
   BookOpen,
   Activity,
   Award,
   Shield,
   Compass,
-  Image as ImageIcon,
   CheckCircle2,
   Sparkles,
   Layers,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { KataVideoPlayer } from "@/components/KataVideoPlayer";
+import { KataEmbusenGallery } from "@/components/KataEmbusenGallery";
 import { KATAS_26, type NivelDificuldade } from "@/Data/katasData";
 
 /** Helper para classes de cor do badge de dificuldade */
@@ -33,62 +33,6 @@ function nivelBadgeClasses(nivel: NivelDificuldade): string {
     default:
       return "bg-black/5 text-black/70 border-black/10";
   }
-}
-
-/** Componente de Imagem com Fallback para Embusen */
-function EmbusenImageCard({
-  src,
-  alt,
-  titulo,
-  subtitulo,
-}: {
-  src: string;
-  alt: string;
-  titulo: string;
-  subtitulo: string;
-}) {
-  const [hasError, setHasError] = useState(false);
-
-  return (
-    <div className="flex flex-col justify-between border border-black/10 bg-white p-5 rounded-sm shadow-sm">
-      <div>
-        <div className="flex items-center justify-between border-b border-black/5 pb-3 mb-3">
-          <span className="flex items-center gap-2 font-jp-serif text-base font-bold text-jp-ink">
-            <Compass className="text-jp-red" size={18} />
-            {titulo}
-          </span>
-          <span className="text-[10px] uppercase tracking-wider text-jp-red bg-jp-red/10 px-2 py-0.5 font-semibold rounded-xs">
-            {subtitulo}
-          </span>
-        </div>
-
-        {!hasError ? (
-          <div className="relative aspect-[4/3] w-full overflow-hidden border border-black/10 bg-jp-paper rounded-xs flex items-center justify-center">
-            <img
-              src={src}
-              alt={alt}
-              onError={() => setHasError(true)}
-              className="h-full w-full object-contain"
-            />
-          </div>
-        ) : (
-          <div className="aspect-[4/3] w-full flex flex-col items-center justify-center border-2 border-dashed border-black/15 bg-jp-paper/60 p-6 text-center rounded-xs">
-            <ImageIcon className="mb-2 text-black/35" size={36} />
-            <span className="text-xs font-bold text-black/70">{titulo}</span>
-            <p className="mt-1 text-[11px] leading-relaxed text-black/50 max-w-xs">
-              Espaço reservado para o diagrama visual do {titulo.toLowerCase()}.
-            </p>
-            <span className="mt-3 inline-block rounded bg-black/5 px-2.5 py-1 font-mono text-[10px] text-black/50">
-              {src}
-            </span>
-          </div>
-        )}
-      </div>
-      <p className="mt-3 text-center text-[11px] italic text-black/50">
-        Representação geométrica dos passos no tatame.
-      </p>
-    </div>
-  );
 }
 
 export function KataPage() {
@@ -235,63 +179,16 @@ export function KataPage() {
 
           {/* ─── 2. SEÇÃO DE MÍDIA E DIAGRAMA (VÍDEO + EMBUSEN) ────────── */}
           <Reveal>
-            <div className="space-y-6">
-              <div className="flex items-center gap-2 font-jp-serif text-2xl font-bold text-jp-ink border-b border-black/10 pb-3">
-                <Video className="text-jp-red" size={24} />
-                <h2>Mídia e Diagrama Espacial (Embusen)</h2>
-              </div>
+            <div className="space-y-8">
+              {/* Componente Modular do Player de Vídeo com Skeleton & Fallback */}
+              <KataVideoPlayer videoUrl={kata.videoUrl} kataNome={kata.nome} />
 
-              {/* Vídeo do Kata */}
-              <div className="border border-black/10 bg-white p-5 rounded-sm shadow-sm">
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-black/60 flex items-center gap-1.5">
-                    <Video size={15} className="text-jp-red" />
-                    Execução Técnica Oficial em Vídeo
-                  </span>
-                  <span className="text-[10px] bg-jp-ink text-white px-2 py-0.5 rounded-xs font-mono">
-                    Vídeo HD
-                  </span>
-                </div>
-
-                {kata.videoUrl ? (
-                  <div className="aspect-video w-full overflow-hidden border border-black/10 bg-black rounded-xs shadow-inner">
-                    <iframe
-                      src={kata.videoUrl}
-                      title={`Vídeo do kata ${kata.nome}`}
-                      className="h-full w-full"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      referrerPolicy="strict-origin-when-cross-origin"
-                    />
-                  </div>
-                ) : (
-                  <div className="aspect-video w-full flex flex-col items-center justify-center border-2 border-dashed border-black/15 bg-jp-paper/60 p-8 text-center rounded-xs">
-                    <Video className="mb-3 text-black/30" size={40} />
-                    <p className="text-sm font-semibold text-black/70">
-                      Vídeo de demonstração em breve
-                    </p>
-                    <p className="mt-1 max-w-sm text-xs text-black/50">
-                      O registro audiovisual da execução oficial deste kata será adicionado no catálogo.
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              {/* Grid das 2 Imagens do Embusen */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <EmbusenImageCard
-                  src={kata.embusenOficialImg}
-                  alt={`Embusen Oficial de ${kata.nome}`}
-                  titulo="Embusen Oficial"
-                  subtitulo="Diagrama Padrão"
-                />
-                <EmbusenImageCard
-                  src={kata.embusenCompletoImg}
-                  alt={`Embusen Completo e Detalhado de ${kata.nome}`}
-                  titulo="Embusen Completo"
-                  subtitulo="Visão Detalhada"
-                />
-              </div>
+              {/* Componente Modular da Galeria de Embusen com Lightbox & Fallback SVG */}
+              <KataEmbusenGallery
+                embusenOficialImg={kata.embusenOficialImg}
+                embusenCompletoImg={kata.embusenCompletoImg}
+                kataNome={kata.nome}
+              />
             </div>
           </Reveal>
 

@@ -253,8 +253,8 @@ out.append('export const KATAS_26: KataTabela[] = [')
 for idx, k in enumerate(katas_raw):
     slug = k["id"]
     video = VIDEO_URLS.get(slug, "")
-    emb_oficial = f"/images/embusen/oficial/{slug}.jpg"
-    emb_completo = f"/images/embusen/completo/{slug}.jpg"
+    emb_oficial = f"/images/embusen/oficial/{slug}.png"
+    emb_completo = f"/images/embusen/completo/{slug}.png"
     p_data = parsed_data.get(idx, {"bunkai": [], "movimentos": []})
     
     out.append("  {")

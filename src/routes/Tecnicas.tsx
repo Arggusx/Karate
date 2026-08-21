@@ -1,9 +1,10 @@
 import { useState, useMemo } from "react";
-import { Search, X, Play, Eye, Compass, Shield, Target, Award, Footprints } from "lucide-react";
+import { Search, X, Play, Eye, Shield, Target, Award, Footprints } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { KataModal } from "@/components/KataModal";
+import { KatasTableSection } from "@/components/KatasTableSection";
 import { TecnicaModal } from "@/components/TecnicaModal";
-import { CATEGORIAS_TECNICAS, TECNICAS, KATAS_SHOTOKAN, type KataItem, type TecnicaItem } from "@/Data/data";
+import { CATEGORIAS_TECNICAS, TECNICAS, type TecnicaItem } from "@/Data/data";
+import { KATAS_HEIAN, KATAS_TEKKI, KATAS_AVANCADOS, KATAS_26 } from "@/Data/katasData";
 
 interface CategoryBlockProps {
   catId: string;
@@ -105,103 +106,7 @@ function CategoryBlock({ catId, title, kanji, onSelectTecnica }: CategoryBlockPr
   );
 }
 
-function KatasBlock({ onSelectKata }: { onSelectKata: (k: KataItem) => void }) {
-  const [query, setQuery] = useState("");
-
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    if (!q) return KATAS_SHOTOKAN;
-    return KATAS_SHOTOKAN.filter(
-      (k) =>
-        k.nome.toLowerCase().includes(q) ||
-        k.significado.toLowerCase().includes(q) ||
-        k.nivel.toLowerCase().includes(q) ||
-        k.categoria.toLowerCase().includes(q) ||
-        k.text.toLowerCase().includes(q)
-    );
-  }, [query]);
-
-  return (
-    <div
-      id="secao-katas"
-      className="scroll-mt-36 bg-white border border-black/10 rounded-sm p-6 mb-12 shadow-sm"
-    >
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b border-black/5">
-        <div className="flex items-center gap-3">
-          <span className="font-jp-serif text-3xl text-jp-red bg-jp-paper px-3 py-1 border border-black/5">型</span>
-          <div>
-            <h2 className="font-jp-serif text-2xl text-jp-ink">Katas do Shotokan</h2>
-            <span className="text-xs text-black/50 tracking-wider uppercase">{filtered.length} kata(s) oficiais</span>
-          </div>
-        </div>
-
-        {/* Filtro / Busca de Katas */}
-        <div className="relative max-w-xs w-full">
-          <Search size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-black/40" />
-          <input
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Buscar kata por nome, nível ou categoria..."
-            className="w-full pl-9 pr-8 py-2 bg-jp-paper border border-black/10 text-xs rounded-sm focus:outline-none focus:border-jp-red"
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-black/40 hover:text-jp-red"
-            >
-              <X size={14} />
-            </button>
-          )}
-        </div>
-      </div>
-
-      {filtered.length === 0 ? (
-        <div className="text-center py-8 text-black/40 text-xs">Nenhum kata encontrado para "{query}".</div>
-      ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filtered.map((k) => (
-            <div
-              key={k.nome}
-              onClick={() => onSelectKata(k)}
-              className="card-elev bg-jp-paper border border-black/5 p-5 flex flex-col justify-between cursor-pointer hover:border-jp-red/40 transition-colors"
-            >
-              <div>
-                <div className="flex items-baseline justify-between mb-1">
-                  <span className="font-jp-serif text-lg font-bold text-jp-ink">{k.nome}</span>
-                  <span className="text-[10px] uppercase tracking-wider text-jp-red bg-jp-red/10 px-2 py-0.5 font-semibold">
-                    {k.nivel}
-                  </span>
-                </div>
-                <div className="text-xs text-jp-gold tracking-wider mb-2 font-medium">
-                  {k.mov} movimentos · {k.categoria}
-                </div>
-                <div className="text-xs font-semibold text-jp-red mb-1">
-                  "{k.significado}"
-                </div>
-                <p className="text-xs text-black/70 leading-relaxed mb-3 line-clamp-3">{k.text}</p>
-              </div>
-
-              <div className="mt-3 pt-3 border-t border-black/5 flex items-center justify-between">
-                <span className="text-[11px] font-medium text-jp-gold flex items-center gap-1">
-                  <Eye size={13} /> Ver detalhes do kata
-                </span>
-                {k.videoUrl ? (
-                  <span className="text-[10px] bg-jp-ink text-white px-2 py-0.5 rounded-xs flex items-center gap-1">
-                    <Play size={10} /> Vídeo
-                  </span>
-                ) : null}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
 export function Tecnicas() {
-  const [selectedKata, setSelectedKata] = useState<KataItem | null>(null);
   const [selectedTecnica, setSelectedTecnica] = useState<TecnicaItem | null>(null);
 
   const scrollToCategory = (id: string) => {
@@ -219,7 +124,7 @@ export function Tecnicas() {
   };
 
   const navCategories = [
-    { id: "Katas", label: "Katas", count: KATAS_SHOTOKAN.length, icon: Compass },
+    { id: "Katas", label: "Katas", count: KATAS_26.length, icon: Target },
     { id: "Socos", label: "Socos e Golpes", count: TECNICAS.filter((t) => t.cat === "Socos").length, icon: Target },
     { id: "Chutes", label: "Chutes", count: TECNICAS.filter((t) => t.cat === "Chutes").length, icon: Footprints },
     { id: "Defesas", label: "Defesas", count: TECNICAS.filter((t) => t.cat === "Defesas").length, icon: Shield },
@@ -271,13 +176,38 @@ export function Tecnicas() {
         </div>
       </nav>
 
-      {/* Conteúdo com os Blocos de Categorias */}
+      {/* Conteúdo */}
       <section className="py-16 bg-jp-paper">
         <div className="max-w-6xl mx-auto px-5 lg:px-8">
-          {/* 1. Seção de Katas */}
-          <Reveal>
-            <KatasBlock onSelectKata={(k) => setSelectedKata(k)} />
-          </Reveal>
+          {/* 1. Seção de Katas — 3 Tabelas por Categoria */}
+          <div id="secao-katas" className="scroll-mt-36">
+            <Reveal>
+              <KatasTableSection
+                titulo="Série Heian"
+                subtitulo="Nível Básico"
+                kanji="平安"
+                katas={KATAS_HEIAN}
+              />
+            </Reveal>
+
+            <Reveal>
+              <KatasTableSection
+                titulo="Série Tekki"
+                subtitulo="Nível Médio"
+                kanji="鉄騎"
+                katas={KATAS_TEKKI}
+              />
+            </Reveal>
+
+            <Reveal>
+              <KatasTableSection
+                titulo="Série Avançada"
+                subtitulo="Sentei & Kaishin Katas"
+                kanji="型"
+                katas={KATAS_AVANCADOS}
+              />
+            </Reveal>
+          </div>
 
           {/* 2. Categorias de Técnicas (Socos, Chutes, Defesas, Bases) */}
           {CATEGORIAS_TECNICAS.filter((cat) => cat.id !== "Katas").map((cat) => (
@@ -292,9 +222,6 @@ export function Tecnicas() {
           ))}
         </div>
       </section>
-
-      {/* Modal de Kata */}
-      {selectedKata && <KataModal kata={selectedKata} onClose={() => setSelectedKata(null)} />}
 
       {/* Modal de Técnica */}
       {selectedTecnica && <TecnicaModal tecnica={selectedTecnica} onClose={() => setSelectedTecnica(null)} />}

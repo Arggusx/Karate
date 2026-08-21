@@ -157,6 +157,7 @@ export interface KataItem {
   videoUrl?: string;
   enbusenUrl?: string;
   imagemUrl?: string;
+  enbusen?: string;
 }
 
 export const KATAS_SHOTOKAN: KataItem[] = [
@@ -252,7 +253,7 @@ export const KATAS_SHOTOKAN: KataItem[] = [
       { termo: "Shodan", significado: "Primeiro nível" }
     ],
     text: "Executado inteiramente em Kiba-dachi ao longo de uma linha reta horizontal única. Desenvolve extrema solidez de base, força nos quadris e técnicas de combate corpo a corpo.",
-    videoUrl: "",
+    videoUrl: "https://youtu.be/1MrRmimBJoA?si=fzzXDrlIReDRZmdk",
     enbusenUrl: "",
     imagemUrl: ""
   },
@@ -284,7 +285,7 @@ export const KATAS_SHOTOKAN: KataItem[] = [
       { termo: "Sandan", significado: "Terceiro nível" }
     ],
     text: "A variação mais rápida e complexa de Tekki. Requer coordenação rítmica ágil de braços e rotação precisa do tronco mantendo a postura firme.",
-    videoUrl: "",
+    videoUrl: "https://youtu.be/1MrRmimBJoA?si=fzzXDrlIReDRZmdk",
     enbusenUrl: "",
     imagemUrl: ""
   },
@@ -428,7 +429,7 @@ export const KATAS_SHOTOKAN: KataItem[] = [
       { termo: "Getsu", significado: "Lua" }
     ],
     text: "Herança da vertente Shorei/Naha-te. Destaca a base Hangetsu-dachi com passos circulares e contração isométrica profunda acompanhada de respiração sonora (Ibuki).",
-    videoUrl: "",
+    videoUrl: "https://www.youtube.com/embed/vOP8dAalfms?si=WuNthW_MhH8RgCcb",
     enbusenUrl: "",
     imagemUrl: ""
   },
@@ -605,22 +606,155 @@ export const GRADUACOES = [
   { faixa: "Preta", jp: "黒帯", txt: "Não é o fim — é o verdadeiro começo. Shodan = 1º dan." },
 ];
 
-export const PRINCIPIOS_TECNICOS = [
-  { k: "決め", n: "Kime", t: "A contração total e instantânea no impacto. Sem kime, o golpe é vazio." },
-  { k: "気合", n: "Kiai", t: "Grito de espírito. Concentra energia, intimida, sincroniza respiração e corpo." },
-  { k: "残心", n: "Zanshin", t: "Mente alerta após o ataque. Nunca relaxe antes que o adversário esteja realmente neutralizado." },
-  { k: "間合", n: "Maai", t: "Distância de combate. Ler maai é metade do karatê — atacar fora dela é morrer." },
-  { k: "拍子", n: "Hyoshi", t: "Ritmo. Quebrar o ritmo do oponente é mais valioso que mil socos." },
-  { k: "腰", n: "Koshi", t: "Quadril. Toda potência verdadeira nasce da rotação do quadril, não do braço." },
-  { k: "引手", n: "Hikite", t: "A mão que recua. Tão importante quanto o soco — gera contra-rotação e potência." },
-  { k: "初心", n: "Shoshin", t: "Mente de iniciante. Mesmo o mestre treina como se aprendesse pela primeira vez." },
-  { k: "無心", n: "Mushin", t: "Mente sem mente. Agir sem pensar, fluido como a água." },
+export interface PilarItem {
+  kanji: string;
+  nome: string;
+  pt: string;
+  tagline: string;
+  oque_e: string;
+  para_que_serve: string;
+}
+
+export interface EtiquetaItem {
+  kanji: string;
+  nome: string;
+  romaji?: string;
+  traducao: string;
+  oque_e: string;
+  para_que_serve: string;
+  detalhes?: { titulo: string; desc: string }[];
+}
+
+export interface PrincipioTecnicoItem {
+  k: string;
+  n: string;
+  traducao: string;
+  oque_e: string;
+  para_que_serve: string;
+}
+
+export const PILARES: PilarItem[] = [
+  {
+    kanji: "基本",
+    nome: "Kihon",
+    pt: "Técnicas Básicas e Fundamentos",
+    tagline: "A matriz biomecânica e o alicerce de toda técnica.",
+    oque_e: "O treinamento metódico e exaustivo das técnicas fundamentais isoladas — bases (dachi), socos (tsuki), defesas (uke) e chutes (keri) — executados repetidamente em linhas retas e rotações.",
+    para_que_serve: "Construir a memória neuromuscular, corrigir a postura e o alinhamento esquelético, gerar potência instantânea e garantir que a reação em combate ocorra sem hesitação mental."
+  },
+  {
+    kanji: "型",
+    nome: "Kata",
+    pt: "Formas e Combate Coreografado",
+    tagline: "A enciclopédia viva e histórica do estilo Shotokan.",
+    oque_e: "Sequências estruturadas de movimentos defensivos e ofensivos contra múltiplos adversários imaginários, traçados em um diagrama geométrico espacial (Enbusen).",
+    para_que_serve: "Preservar o repertório marcial tradicional, treinar transições rítmicas de equilíbrio, controle respiratório e desvendar aplicações práticas de autodefesa real (Bunkai)."
+  },
+  {
+    kanji: "組手",
+    nome: "Kumite",
+    pt: "Combate Prático com Parceiro",
+    tagline: "O laboratório de teste sob pressão e confronto real.",
+    oque_e: "A aplicação direta e controlada dos fundamentos contra um adversário real, evoluindo do combate combinado (Gohon/Sanbon/Ippon Kumite) ao combate livre (Jiyu Kumite).",
+    para_que_serve: "Calibrar a percepção de distância crítica (Maai), tempo de reação (Timing), leitura das intenções do adversário, autocontrole sob estresse e respeito à integridade física do colega."
+  }
 ];
 
-export const PILARES = [
-  { kanji: "基本", nome: "Kihon", pt: "Técnicas Básicas", text: "A repetição constante dos fundamentos — posições, socos, defesas e chutes — molda o corpo e a mente. Sem kihon não há karatê." },
-  { kanji: "型", nome: "Kata", pt: "Formas", text: "Sequências codificadas de movimentos que preservam o conhecimento ancestral. Shotokan possui 26 katas oficiais, do simples Heian Shodan ao complexo Unsu." },
-  { kanji: "組手", nome: "Kumite", pt: "Combate", text: "A aplicação prática dos fundamentos contra um adversário. Vai do kumite ensinado passo-a-passo (ippon) ao livre (jiyu)." },
+export const ETIQUETA_DOJO: EtiquetaItem[] = [
+  {
+    kanji: "礼",
+    nome: "Rei",
+    romaji: "Rei-shiki",
+    traducao: "O Cumprimento e Respeito Mútuo",
+    oque_e: "O ato solene e formal de curvar o tronco em reverência, realizado ao entrar e sair do dojo, antes e depois de cada kata, exercício ou combate.",
+    para_que_serve: "Desarmar o ego, demonstrar humildade e gratidão ao mestre (Sensei) e firmar um compromisso tácito de segurança, lealdade e confiança com o parceiro de treino.",
+    detalhes: [
+      { titulo: "Ritsurei (立礼)", desc: "Cumprimento em pé, inclinando a coluna a cerca de 15 a 30 graus mantendo a postura ereta e o olhar respeitoso." },
+      { titulo: "Zarei (座礼)", desc: "Cumprimento tradicional ajoelhado em Seiza, apoiando as mãos no solo em formato triangular antes de inclinar a cabeça." }
+    ]
+  },
+  {
+    kanji: "押忍",
+    nome: "Oss",
+    romaji: "Osu (Oshi Shinobu)",
+    traducao: "Perseverança, Resiliência e Paciência",
+    oque_e: "Abreviação da expressão 'Oshi Shinobu' (empurrar e suportar). É a saudação universal no cotidiano do dojo, servindo como 'olá', 'obrigado', 'compreendi' e 'vou me esforçar'.",
+    para_que_serve: "Expressar espírito inabalável (Fudoshin), prontidão imediata perante instruções difíceis e determinação para superar a dor, o cansaço e os limites mentais e físicos com calma."
+  },
+  {
+    kanji: "道場訓",
+    nome: "Dōjō Kun",
+    romaji: "Dōjō Precepts",
+    traducao: "Os 5 Preceitos Éticos do Dojo",
+    oque_e: "O código de conduta e filosofia moral composto por cinco regras, recitado em voz alta no final de cada treino por todos os alunos e professores em Seiza.",
+    para_que_serve: "Assegurar que o conhecimento marcial de combate seja sempre guiado pelo aperfeiçoamento do caráter, verdade, esforço, respeito e controle do ímpeto agressivo."
+  }
+];
+
+export const PRINCIPIOS_TECNICOS: PrincipioTecnicoItem[] = [
+  {
+    k: "決め",
+    n: "Kime",
+    traducao: "Foco e Contração Instantânea",
+    oque_e: "A contração muscular total e explosiva concentrada no milissegundo exato do impacto, seguida imediatamente por relaxamento muscular.",
+    para_que_serve: "Transferir a máxima energia cinética ao alvo sem empurrar, gerando impacto penetrante enquanto economiza energia e prepara o corpo para o próximo movimento."
+  },
+  {
+    k: "気合",
+    n: "Kiai",
+    traducao: "União da Energia e Grito Espiritual",
+    oque_e: "A expiração explosiva e emissão vocal originada na região do baixo ventre (Tanden / Hara) no clímax da técnica.",
+    para_que_serve: "Sincronizar a respiração diafragmática, enrijecer a parede abdominal contra eventuais contra-ataques e desestabilizar psicologicamente o oponente."
+  },
+  {
+    k: "残心",
+    n: "Zanshin",
+    traducao: "Mente Alerta e Presença Contínua",
+    oque_e: "O estado de consciência vigilante e serenidade atenta que permanece ativo mesmo após o término de um golpe ou sequência de kata.",
+    para_que_serve: "Evitar o relaxamento prematuro ou triunfalismo no tatame, mantendo o praticante 100% pronto para reagir a qualquer nova ameaça ou contra-ataque súbito."
+  },
+  {
+    k: "間合",
+    n: "Maai",
+    traducao: "Distância e Espaço Estratégico",
+    oque_e: "A mensuração espacial e temporal dinâmica entre você e o adversário, calculada em função do alcance dos membros e da velocidade de deslocamento.",
+    para_que_serve: "Permitir atacar com precisão cirúrgica no momento em que o oponente não consegue reagir e esquivar-se com o mínimo de deslocamento necessário."
+  },
+  {
+    k: "拍子",
+    n: "Hyoshi",
+    traducao: "Ritmo, Cadência e Tempo",
+    oque_e: "O compasso temporal e a cadência respiratória que ditam a troca de iniciativas durante uma luta.",
+    para_que_serve: "Quebrar o padrão de tempo esperado pelo adversário para antecipar golpes (Sen no Sen) e atacar nos momentos de transição e vulnerabilidade."
+  },
+  {
+    k: "腰",
+    n: "Koshi",
+    traducao: "Uso do Quadril e Centro de Gravidade",
+    oque_e: "A rotação, basculamento e travamento da cintura pélvica integrando a base dos pés com os membros superiores.",
+    para_que_serve: "Atuar como o motor gerador de força do corpo; no Karatê tradicional, a força de um golpe não vem do braço isolado, mas sim do giro explosivo do quadril."
+  },
+  {
+    k: "引手",
+    n: "Hikite",
+    traducao: "Puxada da Mão Oposta",
+    oque_e: "O recolhimento enérgico do braço oposto em direção à cintura no momento exato em que o outro braço desfere o soco ou bloqueio.",
+    para_que_serve: "Criar uma reação oposta em rotação (ação e reação), duplicando a velocidade e a penetração do golpe atacante enquanto protege o flanco."
+  },
+  {
+    k: "初心",
+    n: "Shoshin",
+    traducao: "Mente de Principiante",
+    oque_e: "A mentalidade de humildade e receptividade perpétua, independentemente do tempo de treino ou graduação de faixa.",
+    para_que_serve: "Eliminar a arrogância e a ilusão de autossuficiência, permitindo que faixas-pretas e mestres continuem refinando os fundamentos básicos a cada treino."
+  },
+  {
+    k: "無心",
+    n: "Mushin",
+    traducao: "Mente Livre / Estado de Fluxo",
+    oque_e: "O estado de mente límpida e espontânea, sem interferência de pensamentos de medo, hesitação, vaidade ou cálculo consciente excessivo.",
+    para_que_serve: "Permitir respostas motoras automáticas e reflexivas na velocidade da luz durante o combate, agindo de forma intuitiva como a água que se molda ao recipiente."
+  }
 ];
 
 export const DICIONARIO = [

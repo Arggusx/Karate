@@ -9,6 +9,7 @@ import { Historia } from './routes/Historia'
 import Beneficios from './routes/Beneficios'
 import { Tecnicas } from './routes/Tecnicas'
 import { Curiosidades } from './routes/Curiosidades'
+import { KataPage } from './routes/KataPage'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -34,6 +35,7 @@ function App() {
           <Route path='/beneficios' element={<Beneficios />} />
           <Route path='/tecnicas' element={<Tecnicas />} />
           <Route path='/curiosidades' element={<Curiosidades />} />
+          <Route path='/katas/:slug' element={<KataPage />} />
           <Route path='/linhagem' element={<Navigate to='/historia' replace />} />
           
           {/* Retrocompatibilidade com as rotas antigas */}

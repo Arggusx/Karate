@@ -128,9 +128,6 @@ export function GlossarioTerminologia() {
             <BookOpen size={24} />
           </div>
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest text-jp-red">
-              Guia Rápido de Terminologia
-            </span>
             <h2 className="font-jp-serif text-2xl lg:text-3xl font-bold text-jp-ink mt-0.5">
               Conceitos Fundamentais do Shotokan
             </h2>

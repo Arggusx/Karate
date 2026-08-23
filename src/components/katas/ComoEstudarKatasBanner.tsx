@@ -1,4 +1,4 @@
-import { Compass, BookOpen, Layers, ShieldCheck } from "lucide-react";
+import { BookOpen } from "lucide-react";
 
 export function ComoEstudarKatasBanner() {
   return (
@@ -20,9 +20,6 @@ export function ComoEstudarKatasBanner() {
               <BookOpen size={20} />
             </div>
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-jp-gold">
-                Metodologia de Treino
-              </span>
               <h2 className="font-jp-serif text-2xl lg:text-3xl font-bold text-white mt-0.5">
                 Como Estudar os Katas: Embusen vs. Bunkai
               </h2>
@@ -40,10 +37,9 @@ export function ComoEstudarKatasBanner() {
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-5 rounded-sm flex flex-col justify-between hover:border-jp-red/40 transition-all">
             <div>
               <div className="flex items-center justify-between gap-2 mb-3 pb-2 border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <Compass size={20} className="text-jp-red" />
+                <div className="flex items-center gap-2">       
                   <h3 className="font-jp-serif text-xl font-bold text-white">
-                    Embusen (演武線)
+                    Embusen
                   </h3>
                 </div>
                 <span className="text-xs font-jp-serif font-bold text-jp-gold">
@@ -58,7 +54,7 @@ export function ComoEstudarKatasBanner() {
 
             <div className="bg-black/30 p-3 rounded-xs border border-white/5 text-[11px] text-white/70 space-y-1">
               <div className="flex items-center gap-1.5 text-jp-gold font-bold uppercase tracking-wider">
-                <Layers size={12} /> Ponto-chave:
+                Ponto-chave:
               </div>
               <p>
                 Desenvolve consciência espacial, controle de centro de gravidade e precisão absoluta nos giros e pivôs corporais.
@@ -71,9 +67,8 @@ export function ComoEstudarKatasBanner() {
             <div>
               <div className="flex items-center justify-between gap-2 mb-3 pb-2 border-b border-white/10">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck size={20} className="text-sky-400" />
                   <h3 className="font-jp-serif text-xl font-bold text-white">
-                    Bunkai (分解)
+                    Bunkai
                   </h3>
                 </div>
                 <span className="text-xs font-jp-serif font-bold text-jp-gold">
@@ -88,7 +83,7 @@ export function ComoEstudarKatasBanner() {
 
             <div className="bg-black/30 p-3 rounded-xs border border-white/5 text-[11px] text-white/70 space-y-1">
               <div className="flex items-center gap-1.5 text-sky-400 font-bold uppercase tracking-wider">
-                <Layers size={12} /> Ponto-chave:
+                Ponto-chave:
               </div>
               <p>
                 Transforma o Kata em uma enciclopédia viva de combate real contra um ou mais oponentes imaginários.

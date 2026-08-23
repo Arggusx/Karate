@@ -2,14 +2,16 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Reveal } from "@/components/ui/Reveal";
-import { PRECEITOS_FUNAKOSHI } from "@/data/data";
+import { PRECEITOS_FUNAKOSHI, NAV } from "@/data/data";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
+import { CtaFinalSection } from "@/components/common/CtaFinalSection";
 
 const Home = () => {
   const navigate = useNavigate();
 
   return (
     <div className="page-anim">
+      {/* Hero Banner */}
       <section className="relative min-h-[92vh] overflow-hidden bg-jp-ink text-white flex items-center">
         <motion.div
           initial={{ scale: 0.6, opacity: 0 }}
@@ -67,42 +69,44 @@ const Home = () => {
         </div>
       </section>
 
-      {/* <section className="relative py-20 bg-seigaiha">
+      {/* Navegação Rápida / O que você encontrará */}
+      <section className="relative py-20 bg-jp-paper border-b border-black/10">
         <div className="max-w-7xl mx-auto px-5 lg:px-8">
           <Reveal>
             <div className="text-center mb-10">
-              <div className="font-jp-serif text-jp-red text-sm tracking-widest uppercase">案内</div>
-              <h2 className="font-jp-serif text-3xl md:text-4xl mt-2">O que você encontrará aqui</h2>
+              <div className="font-jp-serif text-jp-red text-xs tracking-widest uppercase font-semibold">案内 · Guia de Estudo</div>
+              <h2 className="font-jp-serif text-3xl md:text-4xl text-jp-ink mt-2 font-bold">O que você encontrará aqui</h2>
               <div className="sumi-divider mt-4 max-w-xs mx-auto" />
             </div>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {NAV.filter((n) => n.id !== "home").map((n, i) => (
               <Reveal key={n.id} delay={i * 60}>
                 <button
-                  onClick={() => navigate(n.id === "home" ? "/" : `/${n.id}`)}
-                  className="card-elev w-full text-left bg-white cursor-pointer border border-black/5 p-5 h-full flex flex-col gap-2 group"
+                  onClick={() => navigate(`/${n.id}`)}
+                  className="card-elev w-full text-left bg-white cursor-pointer border border-black/10 p-5 rounded-sm h-full flex flex-col gap-2 group hover:border-jp-red/50 transition-all shadow-2xs"
                 >
-                  <div className="font-jp-serif text-4xl text-jp-red group-hover:scale-110 origin-left transition-transform">{n.kanji}</div>
-                  <div className="font-jp-serif tracking-wider text-sm">{n.label}</div>
-                  <div className="text-[11px] text-black/50 leading-relaxed">
-                    {n.id === "historia" && "Das raízes em Okinawa ao mundo."}
-                    {n.id === "fundamentos" && "Kihon, Kata e Kumite."}
-                    {n.id === "beneficios" && "Corpo, mente, espírito."}
-                    {n.id === "tecnicas" && "Socos, chutes, defesas e bases."}
-                    {n.id === "curiosidades" && "Fatos e segredos do estilo."}
+                  <div className="font-jp-serif text-4xl text-jp-red group-hover:scale-110 origin-left transition-transform font-bold">{n.kanji}</div>
+                  <div className="font-jp-serif tracking-wider text-base font-bold text-jp-ink">{n.label}</div>
+                  <div className="text-xs text-black/60 leading-relaxed font-normal">
+                    {n.id === "historia" && "Das raízes em Okinawa à expansão mundial."}
+                    {n.id === "fundamentos" && "Pilares clássicos: Kihon, Kata e Kumite."}
+                    {n.id === "beneficios" && "Desenvolvimento do corpo, mente e espírito."}
+                    {n.id === "tecnicas" && "Acervo de socos, chutes, defesas e bases."}
+                    {n.id === "curiosidades" && "Fatos históricos e segredos do estilo."}
                   </div>
-                  <span className="mt-auto text-[10px] text-jp-red tracking-widest uppercase flex items-center gap-1">
-                    Explorar <ArrowRight size={10} />
+                  <span className="mt-auto text-[11px] text-jp-red font-bold tracking-widest uppercase flex items-center gap-1 group-hover:translate-x-1 transition-transform pt-2">
+                    Explorar <ArrowRight size={12} />
                   </span>
                 </button>
               </Reveal>
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
+      {/* Frase & Citação de Funakoshi */}
       <section className="relative py-24 bg-jp-ink text-white overflow-hidden">
         <div className="kanji-watermark" style={{ fontSize: 380, left: -30, top: -60 }}>道</div>
         <div className="max-w-4xl mx-auto px-5 lg:px-8 text-center relative">
@@ -120,8 +124,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Dojo Section — compacted, no old buttons */}
-      <section className="py-20 bg-jp-ink text-white relative overflow-hidden">
+      {/* Dojo Section */}
+      <section className="py-20 bg-jp-ink text-white relative overflow-hidden border-b border-white/10">
         <div className="kanji-watermark" style={{ fontSize: 520, left: -80, top: -100, color: "rgba(188,0,45,0.1)" }}>虎</div>
         <div className="absolute inset-0 opacity-20">
           <ImageWithFallback
@@ -183,6 +187,15 @@ const Home = () => {
                 押忍 · Força, disciplina, espírito
               </div>
             </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA Final para fechar a Home com chave de ouro */}
+      <section className="bg-jp-paper py-16">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8">
+          <Reveal>
+            <CtaFinalSection />
           </Reveal>
         </div>
       </section>

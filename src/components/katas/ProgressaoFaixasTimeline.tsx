@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Award, ChevronRight, Sparkles } from "lucide-react";
+import { ChevronRight, Sparkles } from "lucide-react";
 
 export interface FaixaItem {
   cor: string;
@@ -98,10 +98,6 @@ export function ProgressaoFaixasTimeline() {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-black/10">
         <div>
-          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-jp-red">
-            <Award size={15} aria-hidden="true" />
-            <span>Trilha de Aprendizado</span>
-          </div>
           <h2 className="font-jp-serif text-2xl lg:text-3xl font-bold text-jp-ink mt-1">
             Progressão de Katas por Faixa (Kyu & Dan)
           </h2>

@@ -17,7 +17,7 @@ import {
   PRINCIPIOS_TECNICOS,
   type PilarItem,
   type PrincipioTecnicoItem,
-} from "@/Data/data";
+} from "@/data/data";
 
 type TabId = "todos" | "pilares" | "etiqueta" | "principios";
 

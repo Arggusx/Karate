@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { KataTabela, NivelDificuldade } from "@/Data/katasData";
+import type { KataTabela, NivelDificuldade } from "@/data/katasData";
 
 interface KatasTableSectionProps {
   titulo: string;

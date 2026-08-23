@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { NAV, type PageId } from "@/Data/data";
+import { NAV, type PageId } from "@/data/data";
 
 function Header() {
   const [open, setOpen] = useState(false);

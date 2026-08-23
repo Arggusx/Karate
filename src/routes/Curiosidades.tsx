@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { CURIOSIDADES } from "@/Data/data";
+import { CURIOSIDADES } from "@/data/data";
 
 export function Curiosidades() {
   const [openItems, setOpenItems] = useState<Set<number>>(new Set());

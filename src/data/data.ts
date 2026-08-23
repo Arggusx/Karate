@@ -789,6 +789,21 @@ export const CATEGORIAS_TECNICAS = [
   { id: "Katas", label: "Katas (型)", kanji: "型" },
 ];
 
+export interface BiomecanicaInfo {
+  centroGravidade: string;
+  distribuicaoPeso: string;
+  usoQuadril: string;
+  enraizamentoAlinhamento: string;
+  pontoImpactoKime?: string;
+}
+
+export interface TermoGlossarioRelacionado {
+  termo: string;
+  kanji: string;
+  traducao: string;
+  descricao: string;
+}
+
 export interface TecnicaItem {
   tipo: string;
   cat: string;
@@ -798,6 +813,155 @@ export interface TecnicaItem {
   desc: string;
   url_video?: string;
   url_imagem?: string;
+  biomecanica?: BiomecanicaInfo;
+  glossarioRelacionado?: TermoGlossarioRelacionado[];
+}
+
+export function getTecnicaBiomecanica(tecnica: TecnicaItem): BiomecanicaInfo {
+  if (tecnica.biomecanica) return tecnica.biomecanica;
+
+  const nomeUpper = tecnica.nome.toUpperCase();
+
+  if (tecnica.cat === "Bases" || tecnica.tipo === "Dachi") {
+    if (nomeUpper.includes("ZENKUTSU")) {
+      return {
+        centroGravidade: "Projetado à frente, mantido baixo e alinhado no centro de gravidade do tronco.",
+        distribuicaoPeso: "60% do peso corporal na perna dianteira (flexionada) e 40% na perna traseira (totalmente estendida).",
+        usoQuadril: "Rotação vigorosa do quadril (Koshi) alternando entre Shomen (100% frontal para ataques) e Hanmi (45° para defesas).",
+        enraizamentoAlinhamento: "Pé dianteiro virado reto à frente; pé traseiro aberto a no máximo 30°-45°. Pés afastados na largura dos ombros.",
+        pontoImpactoKime: "Fixação profunda da sola do pé traseiro no solo garantindo impulso linear estático inamovível."
+      };
+    }
+    if (nomeUpper.includes("KOKUTSU")) {
+      return {
+        centroGravidade: "Recuado sobre a perna de trás, garantindo esquiva fluida e contragolpe fulminante.",
+        distribuicaoPeso: "70% do peso mantido na perna traseira e 30% na perna dianteira.",
+        usoQuadril: "Quadril posicionado em Hanmi (45°) ou Gyaku-Hanmi, mantendo a bacia encaixada sem inclinar o tronco.",
+        enraizamentoAlinhamento: "Calcanhares alinhados na mesma linha reta. Pé de trás aberto em 90° com o joelho projetado para fora.",
+        pontoImpactoKime: "Enraizamento na perna de trás com a perna da frente livre para chutes ou transições rápidas."
+      };
+    }
+    if (nomeUpper.includes("KIBA")) {
+      return {
+        centroGravidade: "Rebaixado exatamente no centro geométrico da base, forjando estabilidade lateral extrema.",
+        distribuicaoPeso: "Distribuição perfeitamente simétrica: 50% na perna esquerda e 50% na perna direita.",
+        usoQuadril: "Quadril travado em Shomen lateral com basculamento pélvico neutro para proteger a coluna.",
+        enraizamentoAlinhamento: "Pés paralelos apontando diretamente à frente. Joelhos forçados para fora sobre as pontas dos pés.",
+        pontoImpactoKime: "Contração dos adutores e glúteos gerando um bloco compacto resistente a impactos laterais."
+      };
+    }
+    if (nomeUpper.includes("FUDO") || nomeUpper.includes("SOCHIN")) {
+      return {
+        centroGravidade: "Centro absoluto e imóvel, integrando o avanço do Zenkutsu com a firmeza lateral do Kiba-dachi.",
+        distribuicaoPeso: "50% do peso na perna da frente e 50% na de trás, ambas com joelhos flexionados e ativos.",
+        usoQuadril: "Quadril em Hanmi firme (45°), enraizado para absorver e desferir golpes de alto impacto.",
+        enraizamentoAlinhamento: "Pés abertos a 45°, cravados no solo como as raízes de uma árvore secular.",
+        pontoImpactoKime: "Imobilidade absoluta (Fudoshin) e explosão muscular instantânea."
+      };
+    }
+    if (nomeUpper.includes("NEKO")) {
+      return {
+        centroGravidade: "Totalmente recolhido na perna de trás, proporcionando esquiva ágil e reação instantânea.",
+        distribuicaoPeso: "90% a 95% do peso mantido na perna traseira flexionada; 5% a 10% na perna da frente.",
+        usoQuadril: "Quadril recolhido em Hanmi fechado, reduzindo a área de exposição corporal.",
+        enraizamentoAlinhamento: "Pé de trás virado a 45°; pé da frente apenas toca o solo com a planta (koshi), pronta para chutar.",
+        pontoImpactoKime: "Flexibilidade elástica de perna de gato para contra-atacar em fração de segundos."
+      };
+    }
+    return {
+      centroGravidade: "Estável e rebaixado para maximizar a aderência e o equilíbrio no tatame.",
+      distribuicaoPeso: "Equilibrada de forma a permitir transições rápidas sem perda de postura.",
+      usoQuadril: "Basculamento e rotação firme da pelve (Koshi) alinhados com o eixo da espinha vertebral.",
+      enraizamentoAlinhamento: "Pés firmes no solo, joelhos flexionados protegendo a estrutura articular inferior.",
+      pontoImpactoKime: "Alinhamento esquelético direto do solo até a terminação técnica."
+    };
+  }
+
+  if (tecnica.cat === "Socos" || tecnica.tipo === "Tsuki" || tecnica.tipo === "Uchi") {
+    return {
+      centroGravidade: "Ancorado na base de apoio durante o deslocamento e fixo no instante da colisão.",
+      distribuicaoPeso: "Manutenção do centro de massa estável com transferência da energia cinética do tronco.",
+      usoQuadril: "Rotação explosiva do quadril (Koshi) partindo da bacia até os ombros, atuando como o motor primário.",
+      enraizamentoAlinhamento: "Punho perfeitamente alinhado com o antebraço nos 2 primeiros nós (Seiken), ombros baixos.",
+      pontoImpactoKime: "Puxada vigorosa da mão oposta (Hikite), contração do Tanden e Kime penetrante no alvo."
+    };
+  }
+
+  if (tecnica.cat === "Defesas" || tecnica.tipo === "Uke") {
+    return {
+      centroGravidade: "Deslocado levemente fora do vetor de ataque inimigo para desviar a trajetória do golpe.",
+      distribuicaoPeso: "Transição dinâmica de peso entre as pernas garantindo firmeza na absorção.",
+      usoQuadril: "Giro de quadril em Hanmi (45°) no milissegundo do contato para esquivar e defletir.",
+      enraizamentoAlinhamento: "Antebraço em ângulo de proteção (90°-120°) cobrindo os portais do corpo (Jodan/Chudan/Gedan).",
+      pontoImpactoKime: "Contração do dorsal e grande peitoral na interceptação sem colidir de frente."
+    };
+  }
+
+  if (tecnica.cat === "Chutes" || tecnica.tipo === "Keri") {
+    return {
+      centroGravidade: "Equilibrado sobre o eixo da perna de apoio (Jiku-ashi) enquanto a perna atacante se projeta.",
+      distribuicaoPeso: "100% de sustentação na perna de apoio, exigindo alto controle neuromuscular unilateral.",
+      usoQuadril: "Elevação prévia do joelho seguida da extensão explosiva do quadril na direção do alvo.",
+      enraizamentoAlinhamento: "Pé de apoio gira levemente para fora para aliviar o joelho; tornozelo atacante travado na arma correta.",
+      pontoImpactoKime: "Recolhimento ultra-rápido do joelho (Hiki-ashi) pós-impacto para evitar ser capturado."
+    };
+  }
+
+  return {
+    centroGravidade: "Equilibrado e alinhado no eixo corporal central.",
+    distribuicaoPeso: "Adequada à execução da técnica sem comprometer a estabilidade.",
+    usoQuadril: "Participação ativa do quadril (Koshi) para geração de alavanca e potência.",
+    enraizamentoAlinhamento: "Enraizamento correto dos pés e alinhamento anatômico das articulações.",
+    pontoImpactoKime: "Kime e contração muscular focada no instante exato do término do movimento."
+  };
+}
+
+export function getTecnicaGlossario(tecnica: TecnicaItem): TermoGlossarioRelacionado[] {
+  if (tecnica.glossarioRelacionado && tecnica.glossarioRelacionado.length > 0) {
+    return tecnica.glossarioRelacionado;
+  }
+
+  if (tecnica.cat === "Bases" || tecnica.tipo === "Dachi") {
+    return [
+      { termo: "Dachi (立ち)", kanji: "立", traducao: "Base / Postura", descricao: "Posição dos pés e distribuição do peso corporal que fundamenta a estabilidade marcial." },
+      { termo: "Koshi (腰)", kanji: "腰", traducao: "Quadril / Cintura", descricao: "O centro motor e gerador de força do corpo no Karatê tradicional." },
+      { termo: "Shomen / Hanmi", kanji: "正面 / 半身", traducao: "Frente Total / Perfil a 45°", descricao: "As duas angulações fundamentais do quadril para ataques diretos e defesas." },
+      { termo: "Hikite (引手)", kanji: "引手", traducao: "Puxada da Mão Oposta", descricao: "Reação oposta do braço recolhido à cintura para duplicar a aceleração rotacional." },
+    ];
+  }
+
+  if (tecnica.cat === "Socos" || tecnica.tipo === "Tsuki" || tecnica.tipo === "Uchi") {
+    return [
+      { termo: "Tsuki / Zuki (突き)", kanji: "突", traducao: "Soco Direto", descricao: "Ataque linear executado com rotação explosiva de punho e aceleração de quadril." },
+      { termo: "Seiken (正拳)", kanji: "正拳", traducao: "Frente do Punho", descricao: "Superfície de impacto primária composta pelos nós do indicador e dedo médio." },
+      { termo: "Kime (決め)", kanji: "決", traducao: "Foco e Contração Instantânea", descricao: "A contração muscular total no milissegundo final do impacto seguida de relaxamento." },
+      { termo: "Tanden (丹田)", kanji: "丹田", traducao: "Baixo Ventre", descricao: "O centro de gravidade e energia corporal localizado logo abaixo do umbigo." },
+    ];
+  }
+
+  if (tecnica.cat === "Defesas" || tecnica.tipo === "Uke") {
+    return [
+      { termo: "Uke (受け)", kanji: "受", traducao: "Defesa / Recepção", descricao: "Movimento de desvio, bloqueio ou interceptação da força de ataque do adversário." },
+      { termo: "Ude (腕)", kanji: "腕", traducao: "Antebraço", descricao: "Superfície óssea e muscular principal utilizada nos bloqueios do Karatê." },
+      { termo: "Koshin (後進)", kanji: "後進", traducao: "Movimento de Recuo", descricao: "Deslocamento tático para trás visando absorção e criação de distância." },
+      { termo: "Jōdan / Chūdan / Gedan", kanji: "上中下", traducao: "Alturas de Ataque", descricao: "Divisão anatômica em nível alto (cabeça), médio (tronco) e baixo (cintura/pernas)." },
+    ];
+  }
+
+  if (tecnica.cat === "Chutes" || tecnica.tipo === "Keri") {
+    return [
+      { termo: "Keri / Geri (蹴り)", kanji: "蹴", traducao: "Chute / Golpe de Perna", descricao: "Técnica ofensiva de perna utilizando diferentes armas e trajetórias do pé." },
+      { termo: "Koshi (母指)", kanji: "母指", traducao: "Bola do Pé", descricao: "Base dos dedos do pé usada no impacto penetrante do chute frontal (Mae-geri)." },
+      { termo: "Sokuto (足刀)", kanji: "足刀", traducao: "Cutelo do Pé", descricao: "Borda externa lateral do pé utilizada no chute lateral (Yoko-geri)." },
+      { termo: "Hiki-ashi (引き足)", kanji: "引き足", traducao: "Recolhimento da Perna", descricao: "Retorno ultra-rápido do joelho após o chute para proteger a perna de capturas." },
+    ];
+  }
+
+  return [
+    { termo: "Kihon (基本)", kanji: "基本", traducao: "Fundamentos Técnicos", descricao: "O treino exaustivo dos movimentos básicos individuais para perfeição mecânica." },
+    { termo: "Maai (間合)", kanji: "間合", traducao: "Distância Crítica", descricao: "A mensuração do espaço dinâmico entre você e o adversário." },
+    { termo: "Zanshin (残心)", kanji: "残心", traducao: "Mente Alerta", descricao: "O estado de consciência e prontidão contínua após o término da técnica." },
+  ];
 }
 
 export const TECNICAS: TecnicaItem[] = [

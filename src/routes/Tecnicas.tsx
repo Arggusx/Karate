@@ -7,7 +7,6 @@ import {
   Target,
   Layers,
   Compass,
-  BookOpen,
   Zap,
   Filter,
   Award,
@@ -16,7 +15,6 @@ import {
 import { Reveal } from "@/components/ui/Reveal";
 import { KatasTableSection } from "@/components/katas/KatasTableSection";
 import { TecnicaModal } from "@/components/tecnicas/TecnicaModal";
-import { GlossarioTerminologia } from "@/components/tecnicas/GlossarioTerminologia";
 import { ProgressaoFaixasTimeline } from "@/components/katas/ProgressaoFaixasTimeline";
 import { ComoEstudarKatasBanner } from "@/components/katas/ComoEstudarKatasBanner";
 import { KatasFaqSection } from "@/components/katas/KatasFaqSection";
@@ -169,14 +167,6 @@ export function Tecnicas() {
           </span>
           <div className="flex items-center gap-2 overflow-x-auto">
             <button
-              onClick={() => scrollToAnchor("secao-glossario")}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/10 bg-white text-xs font-semibold text-jp-ink hover:border-jp-red hover:text-jp-red transition-all cursor-pointer whitespace-nowrap shadow-2xs"
-            >
-              <BookOpen size={14} className="text-jp-red" />
-              <span>Glossário & Terminologia</span>
-            </button>
-
-            <button
               onClick={() => scrollToAnchor("secao-trilha-faixas")}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-black/10 bg-white text-xs font-semibold text-jp-ink hover:border-jp-red hover:text-jp-red transition-all cursor-pointer whitespace-nowrap shadow-2xs"
             >
@@ -223,15 +213,6 @@ export function Tecnicas() {
       <main className="py-12 lg:py-16 space-y-16">
         <div className="max-w-7xl mx-auto px-5 lg:px-8 space-y-16">
 
-          {/* ─── SEÇÃO 2: FUNDAMENTOS & GLOSSÁRIO DE TERMINOLOGIA ────────── */}
-          <section id="secao-glossario" className="scroll-mt-32">
-            <Reveal>
-              <GlossarioTerminologia />
-            </Reveal>
-          </section>
-
-          <hr className="border-t border-black/10" />
-
           {/* ─── MEIO DA PÁGINA: LINHA DO TEMPO DE FAIXAS & METODOLOGIA ─── */}
           <section id="secao-trilha-faixas" className="scroll-mt-32 space-y-12">
             <Reveal>
@@ -251,10 +232,6 @@ export function Tecnicas() {
           <section id="secao-katas" className="scroll-mt-32 space-y-12">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-black/10 pb-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-jp-red">
-                  <Target size={15} aria-hidden="true" />
-                  <span>Acervo Oficial</span>
-                </div>
                 <h2 className="font-jp-serif text-3xl lg:text-4xl font-bold text-jp-ink mt-1">
                   Catálogo dos 26 Katas do Shotokan
                 </h2>
@@ -303,10 +280,6 @@ export function Tecnicas() {
               {/* Header da Seção Kihon */}
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-black/10">
                 <div>
-                  <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-jp-red">
-                    <Zap size={15} aria-hidden="true" />
-                    <span>Técnicas de Kihon</span>
-                  </div>
                   <h2 className="font-jp-serif text-2xl lg:text-3xl font-bold text-jp-ink mt-1">
                     Bases, Socos, Chutes e Defesas
                   </h2>

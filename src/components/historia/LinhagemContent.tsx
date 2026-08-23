@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 
 interface MestreNode {
   nome: string;

@@ -1,8 +1,8 @@
 import { useLayoutEffect } from 'react'
 import { BrowserRouter as Router, Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { Toaster } from 'sonner'
-import Header from "./components/Header"
-import Footer from './components/Footer'
+import Header from "./components/layout/Header"
+import Footer from './components/layout/Footer'
 import Home from './routes/Home'
 import { Fundaments } from './routes/Fundaments'
 import { Historia } from './routes/Historia'

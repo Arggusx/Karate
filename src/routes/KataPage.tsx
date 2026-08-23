@@ -13,9 +13,9 @@ import {
   Layers,
   Keyboard,
 } from "lucide-react";
-import { Reveal } from "@/components/Reveal";
-import { KataVideoPlayer } from "@/components/KataVideoPlayer";
-import { KataEmbusenGallery } from "@/components/KataEmbusenGallery";
+import { Reveal } from "@/components/ui/Reveal";
+import { KataVideoPlayer } from "@/components/katas/KataVideoPlayer";
+import { KataEmbusenGallery } from "@/components/katas/KataEmbusenGallery";
 import { KATAS_26, type NivelDificuldade } from "@/data/katasData";
 
 // ─── SEO: Dynamic <head> meta tags ───────────────────────────────────────────

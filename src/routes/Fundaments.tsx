@@ -7,7 +7,7 @@ import {
   CheckCircle2,
   Compass
 } from "lucide-react";
-import { Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import {
   DICIONARIO,
   DOJO_KUN,

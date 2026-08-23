@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import { PRECEITOS_FUNAKOSHI } from "@/data/data";
-import { ImageWithFallback } from "@/components/ImageWithFallback";
+import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 
 const Home = () => {
   const navigate = useNavigate();

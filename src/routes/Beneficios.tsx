@@ -1,4 +1,4 @@
-import { Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import { BENEFICIOS, DEPOIMENTOS } from "@/data/data";
 
 export function Beneficios() {

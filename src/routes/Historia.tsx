@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import { TIMELINE, MESTRES, PRECEITOS_NIJU_KUN } from "@/data/data";
-import { ImageWithFallback } from "@/components/ImageWithFallback";
-import { LinhagemContent } from "@/components/LinhagemContent";
+import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
+import { LinhagemContent } from "@/components/historia/LinhagemContent";
 
 export function Historia() {
   const [openTl, setOpenTl] = useState<number | null>(null);

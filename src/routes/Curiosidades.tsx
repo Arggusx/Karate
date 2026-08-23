@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/ui/Reveal";
 import { CURIOSIDADES } from "@/data/data";
 
 export function Curiosidades() {

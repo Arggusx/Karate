@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/Reveal";
-import { BENEFICIOS, DEPOIMENTOS } from "@/Data/data";
+import { BENEFICIOS, DEPOIMENTOS } from "@/data/data";
 
 export function Beneficios() {
   return (

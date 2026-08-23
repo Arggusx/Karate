@@ -13,7 +13,7 @@ import {
   Award,
   Target
 } from "lucide-react";
-import type { KataItem } from "../Data/data";
+import type { KataItem } from "../data/data";
 
 interface KataModalProps {
   kata: KataItem;

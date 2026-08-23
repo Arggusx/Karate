@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { TIMELINE, MESTRES, PRECEITOS_NIJU_KUN } from "@/Data/data";
+import { TIMELINE, MESTRES, PRECEITOS_NIJU_KUN } from "@/data/data";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 import { LinhagemContent } from "@/components/LinhagemContent";
 

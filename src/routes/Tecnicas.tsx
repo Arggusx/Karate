@@ -3,8 +3,8 @@ import { Search, X, Play, Eye, Shield, Target, Award, Footprints } from "lucide-
 import { Reveal } from "@/components/Reveal";
 import { KatasTableSection } from "@/components/KatasTableSection";
 import { TecnicaModal } from "@/components/TecnicaModal";
-import { CATEGORIAS_TECNICAS, TECNICAS, type TecnicaItem } from "@/Data/data";
-import { KATAS_HEIAN, KATAS_TEKKI, KATAS_AVANCADOS, KATAS_26 } from "@/Data/katasData";
+import { CATEGORIAS_TECNICAS, TECNICAS, type TecnicaItem } from "@/data/data";
+import { KATAS_HEIAN, KATAS_TEKKI, KATAS_AVANCADOS, KATAS_26 } from "@/data/katasData";
 
 interface CategoryBlockProps {
   catId: string;

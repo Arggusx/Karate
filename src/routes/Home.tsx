@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Reveal } from "@/components/Reveal";
-import { PRECEITOS_FUNAKOSHI } from "@/Data/data";
+import { PRECEITOS_FUNAKOSHI } from "@/data/data";
 import { ImageWithFallback } from "@/components/ImageWithFallback";
 
 const Home = () => {

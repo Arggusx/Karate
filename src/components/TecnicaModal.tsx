@@ -11,7 +11,7 @@ import {
   Shield,
   Layers
 } from "lucide-react";
-import type { TecnicaItem } from "@/Data/data";
+import type { TecnicaItem } from "@/data/data";
 
 interface TecnicaModalProps {
   tecnica: TecnicaItem;

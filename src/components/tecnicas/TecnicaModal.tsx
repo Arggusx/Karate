@@ -9,7 +9,6 @@ import {
   Compass,
   Footprints,
   Zap,
-  ImagePlus,
   CheckCircle2,
 } from "lucide-react";
 import {
@@ -17,6 +16,9 @@ import {
   getTecnicaGlossario,
   type TecnicaItem,
 } from "@/data/data";
+import { TechniqueImage } from "@/components/tecnicas/visuals/TechniqueImage";
+import { TechniqueAnimatedGif } from "@/components/tecnicas/visuals/TechniqueAnimatedGif";
+import { resolvePose } from "@/components/tecnicas/visuals/poses";
 
 interface TecnicaModalProps {
   tecnica: TecnicaItem;
@@ -45,6 +47,10 @@ export function TecnicaModal({ tecnica, onClose }: TecnicaModalProps) {
 
   const biomecanica = getTecnicaBiomecanica(tecnica);
   const glossarioTerms = getTecnicaGlossario(tecnica);
+  // ponto técnico da pose — só faz sentido quando a ilustração vetorial aparece
+  const posePoint = tecnica.url_imagem
+    ? undefined
+    : resolvePose(tecnica.nome, tecnica.tipo, tecnica.cat).tip;
 
   return createPortal(
     <div
@@ -213,7 +219,7 @@ export function TecnicaModal({ tecnica, onClose }: TecnicaModalProps) {
                 </div>
 
                 <div className="grid gap-5 md:grid-cols-2">
-                  {/* Card Imagem */}
+                  {/* Card Imagem — foto externa ou ilustração vetorial gerada */}
                   <div className="flex flex-col justify-between border border-black/10 bg-white p-4 shadow-2xs rounded-sm">
                     <div>
                       <div className="flex items-center justify-between border-b border-black/5 pb-2 text-xs font-semibold text-black/70">
@@ -223,62 +229,45 @@ export function TecnicaModal({ tecnica, onClose }: TecnicaModalProps) {
                         </span>
                       </div>
 
-                      {tecnica.url_imagem ? (
-                        <div className="mt-3 flex aspect-[4/3] items-center justify-center overflow-hidden border border-black/10 bg-jp-paper rounded-xs">
-                          <img
-                            alt={`Postura de ${tecnica.nome}`}
-                            className="h-full w-full object-contain"
-                            src={tecnica.url_imagem}
-                          />
-                        </div>
-                      ) : (
-                        <div className="mt-3 flex aspect-[4/3] flex-col items-center justify-center border-2 border-dashed border-black/15 bg-jp-paper/40 p-4 text-center">
-                          <ImagePlus className="mb-2 text-black/30" size={32} />
-                          <span className="text-xs font-bold text-black/70">
-                            Espaço para Foto da Postura
-                          </span>
-                          <p className="mt-1 text-[11px] text-black/50">
-                            Alinhamento e execução gráfica de <strong>{tecnica.nome}</strong>.
-                          </p>
-                        </div>
-                      )}
+                      <div className="mt-3 flex aspect-[4/3] items-center justify-center overflow-hidden border border-black/10 bg-jp-paper rounded-xs">
+                        <TechniqueImage
+                          cat={tecnica.cat}
+                          nome={tecnica.nome}
+                          showBadge
+                          src={tecnica.url_imagem}
+                          tipo={tecnica.tipo}
+                        />
+                      </div>
                     </div>
-                    <p className="mt-3 text-center text-[11px] italic text-black/50">
-                      Alinhamento biomecânico e postura de combate.
-                    </p>
+
+                    {posePoint ? (
+                      <p className="mt-3 border-t border-black/5 pt-2 text-[11px] leading-relaxed text-black/65">
+                        <strong className="text-jp-red">Ponto-chave:</strong> {posePoint}
+                      </p>
+                    ) : (
+                      <p className="mt-3 text-center text-[11px] italic text-black/50">
+                        Alinhamento biomecânico e postura de combate.
+                      </p>
+                    )}
                   </div>
 
-                  {/* Card Vídeo */}
+                  {/* Card Vídeo — mídia externa ou animação vetorial do movimento */}
                   <div className="flex flex-col justify-between border border-black/10 bg-white p-4 shadow-2xs rounded-sm">
                     <div>
                       <div className="flex items-center justify-between border-b border-black/5 pb-2 text-xs font-semibold text-black/70">
                         <span className="flex items-center gap-1.5">
                           <Video className="text-jp-red" size={15} />
-                          Execução em Vídeo
+                          Execução do Movimento
                         </span>
                       </div>
 
-                      <div className="mt-3 aspect-video overflow-hidden border border-black/10 bg-jp-ink shadow-inner rounded-xs flex items-center justify-center">
-                        {tecnica.url_video ? (
-                          <iframe
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                            className="h-full w-full"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            src={tecnica.url_video}
-                            title={`Vídeo de ${tecnica.nome}`}
-                          />
-                        ) : (
-                          <div className="text-center p-4">
-                            <Video className="mb-2 mx-auto text-white/30" size={32} />
-                            <p className="text-xs text-white/80 font-semibold">
-                              Registro em vídeo em breve
-                            </p>
-                            <p className="mt-1 text-[11px] text-white/50 max-w-xs">
-                              O vídeo oficial de demonstração de <strong>{tecnica.nome}</strong> será adicionado.
-                            </p>
-                          </div>
-                        )}
+                      <div className="mt-3 aspect-video overflow-hidden border border-black/10 bg-jp-ink shadow-inner rounded-xs">
+                        <TechniqueAnimatedGif
+                          cat={tecnica.cat}
+                          nome={tecnica.nome}
+                          src={tecnica.url_video}
+                          tipo={tecnica.tipo}
+                        />
                       </div>
                     </div>
                     <p className="mt-3 text-center text-[11px] italic text-black/50">

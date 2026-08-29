@@ -15,6 +15,7 @@ import {
 import { Reveal } from "@/components/ui/Reveal";
 import { KatasTableSection } from "@/components/katas/KatasTableSection";
 import { TecnicaModal } from "@/components/tecnicas/TecnicaModal";
+import { TechniqueImage } from "@/components/tecnicas/visuals/TechniqueImage";
 import { ProgressaoFaixasTimeline } from "@/components/katas/ProgressaoFaixasTimeline";
 import { ComoEstudarKatasBanner } from "@/components/katas/ComoEstudarKatasBanner";
 import { KatasFaqSection } from "@/components/katas/KatasFaqSection";
@@ -380,6 +381,18 @@ export function Tecnicas() {
                       aria-label={`Ver detalhes da técnica ${t.nome}`}
                     >
                       <div>
+                        {/* Miniatura: foto externa quando houver, senão a ilustração vetorial */}
+                        <div className="mb-3 flex h-32 items-center justify-center overflow-hidden rounded-xs border border-black/5 bg-white">
+                          <TechniqueImage
+                            cat={t.cat}
+                            compact
+                            nome={t.nome}
+                            showGuides={false}
+                            src={t.url_imagem}
+                            tipo={t.tipo}
+                          />
+                        </div>
+
                         <div className="flex items-baseline justify-between mb-1.5">
                           <span className="font-jp-serif text-lg font-bold text-jp-ink group-hover:text-jp-red transition-colors">
                             {t.nome}

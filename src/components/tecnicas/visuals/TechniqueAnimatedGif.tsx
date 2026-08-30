@@ -18,18 +18,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useReducedMotion } from "motion/react";
 import { Play, Pause, Gauge, Sparkles } from "lucide-react";
 import { AnimatedKarateFigure, type Tone } from "./KarateFigure";
+import { detectMediaKind } from "./midia";
 import { resolvePose } from "./poses";
 import { hasAuthoredSequence, phaseAt, resolveSequence } from "./sequences";
-
-/** Classifica a mídia externa a partir da extensão / domínio da URL. */
-export type MediaKind = "video" | "image" | "embed";
-
-export function detectMediaKind(src: string): MediaKind {
-  const clean = src.split("?")[0].toLowerCase();
-  if (/\.(mp4|webm|ogv|ogg|mov|m4v)$/.test(clean)) return "video";
-  if (/\.(gif|webp|apng|png|jpe?g|avif|svg)$/.test(clean)) return "image";
-  return "embed";
-}
 
 export interface TechniqueAnimatedGifProps {
   nome: string;

@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@tailwindcss/vite": "^4.1.11",
+    "bcryptjs": "^3.0.3",
+    "jose": "^6.2.10",
     "lucide-react": "^0.541.0",
     "motion": "^12.23.24",
     "react": "^19.1.0",
@@ -21,9 +24,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^25.9.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "@vercel/node": "^10.0.0",
     "@vitejs/plugin-react": "^4.5.2",
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",

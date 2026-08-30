@@ -1,11 +1,21 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn, LayoutDashboard } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { NAV, type PageId } from "@/data/data";
+import { useAuth } from "@/auth/useAuth";
 
 function Header() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { usuario } = useAuth();
+
+  // Ja autenticado: o botao leva direto ao portal do papel, em vez de
+  // devolver a pessoa para um login que ela nao precisa refazer.
+  const destinoPortal = usuario
+    ? usuario.role === "admin"
+      ? "/app/admin"
+      : "/app/aluno"
+    : "/login";
 
   const getPageIdFromPath = (path: string): PageId => {
     if (path === "/") return "home";
@@ -55,6 +65,14 @@ function Header() {
             ))}
           </ul>
 
+          <Link
+            to={destinoPortal}
+            className="hidden lg:inline-flex items-center gap-2 rounded-sm bg-jp-red px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#9a0024] focus:outline-none focus:ring-2 focus:ring-jp-gold"
+          >
+            {usuario ? <LayoutDashboard size={15} /> : <LogIn size={15} />}
+            {usuario ? "Meu Portal" : "Portal do Aluno / Login"}
+          </Link>
+
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
@@ -90,6 +108,16 @@ function Header() {
               </li>
             ))}
           </ul>
+
+          <Link
+            to={destinoPortal}
+            onClick={() => setOpen(false)}
+            tabIndex={open ? 0 : -1}
+            className="m-4 flex items-center justify-center gap-2 rounded-sm bg-jp-red px-4 py-3 text-sm font-semibold text-white"
+          >
+            {usuario ? <LayoutDashboard size={16} /> : <LogIn size={16} />}
+            {usuario ? "Meu Portal" : "Portal do Aluno / Login"}
+          </Link>
         </div>
       </nav>
     </>

@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Variaveis de ambiente (NUNCA commitar credenciais do banco)
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
